@@ -59,7 +59,7 @@ export function transformFeetState(
 ): FeetState {
   const translationVector: Position = diff(feetState[anchor.side].heel, anchor.position);
 
-  const angle = DIRECTION_ANGLES[anchor.direction];
+  const angle = DIRECTION_ANGLES[anchor.direction] - Math.PI / 2;
   const otherSide = getOtherSide(anchor.side);
 
   // Translate:

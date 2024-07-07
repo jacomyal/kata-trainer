@@ -74,11 +74,11 @@ export const STANCES_META: Record<Stance, StanceMeta> = {
     description: "Forward stance with weight distribution primarily on the front leg",
     rightFootLeadingState: {
       left: {
-        heel: { x: 0, y: -50 },
-        angle: Math.PI / 2,
+        heel: { x: -10, y: -30 },
+        angle: (Math.PI * 2) / 3,
       },
       right: {
-        heel: { x: 0, y: 50 },
+        heel: { x: 10, y: 30 },
         angle: Math.PI / 2,
       },
     },
@@ -90,11 +90,11 @@ export const STANCES_META: Record<Stance, StanceMeta> = {
     rightFootLeadingState: {
       left: {
         heel: { x: 0, y: -50 },
-        angle: Math.PI / 2,
+        angle: Math.PI,
       },
       right: {
-        heel: { x: 30, y: 0 },
-        angle: 0,
+        heel: { x: 0, y: 0 },
+        angle: Math.PI / 2,
       },
     },
   },

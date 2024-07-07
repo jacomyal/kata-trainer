@@ -13,7 +13,7 @@ const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) 
           style={{
             top: -left.heel.y + "cm",
             left: left.heel.x + "cm",
-            transform: `rotate(${left.angle}rad)`,
+            transform: `rotate(${-left.angle}rad)`,
           }}
         />
         <div
@@ -21,7 +21,7 @@ const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) 
           style={{
             top: -right.heel.y + "cm",
             left: right.heel.x + "cm",
-            transform: `rotate(${right.angle}rad)`,
+            transform: `rotate(${-right.angle}rad)`,
           }}
         />
       </div>
