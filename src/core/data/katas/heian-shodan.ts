@@ -1,31 +1,24 @@
 import type { Kata } from "./types.ts";
 
 export const HEIAN_SHODAN: Kata = {
+  slug: "heian-shodan",
   name: "Heian Shodan",
+  initialStance: {
+    stance: "yohi-dachi",
+    facing: "north",
+  },
   steps: [
     {
-      movements: [
-        {
-          type: "stance",
-          stance: "yoji-dachi",
-          facing: "north",
-        },
-      ],
-    },
-
-    {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "west",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "west",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "west",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "west",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -35,18 +28,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "west",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "west",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "west",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "west",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -57,18 +48,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "east",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "east",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "east",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "east",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -78,19 +67,17 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "west",
-          range: "short",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "east",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "west",
+        range: "short",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "east",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -100,18 +87,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "east",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "east",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "east",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "east",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -123,18 +108,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "north",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "north",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "north",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "north",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -144,18 +127,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "north",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "north",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "north",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "north",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -165,18 +146,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "north",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "north",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "north",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "north",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -186,18 +165,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "north",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "north",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "north",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "north",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -210,18 +187,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "east",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "east",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "east",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "east",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -231,18 +206,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "east",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "east",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "east",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "east",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -254,18 +227,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "west",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "west",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "west",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "west",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -275,18 +246,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "west",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "west",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "west",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "west",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -298,18 +267,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "south",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "south",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "south",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "south",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -319,18 +286,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "south",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "south",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "south",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "south",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -340,18 +305,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "south",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "south",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "south",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "south",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -361,18 +324,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "south",
-        },
-        {
-          type: "stance",
-          stance: "zenkutsu-dachi",
-          facing: "south",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "south",
+      },
+      stance: {
+        stance: "zenkutsu-dachi",
+        facing: "south",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -385,18 +346,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "west",
-        },
-        {
-          type: "stance",
-          stance: "kokutsu-dachi",
-          facing: "west",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "west",
+      },
+      stance: {
+        stance: "kokutsu-dachi",
+        facing: "west",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -406,18 +365,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "northwest",
-        },
-        {
-          type: "stance",
-          stance: "kokutsu-dachi",
-          facing: "northwest",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "northwest",
+      },
+      stance: {
+        stance: "kokutsu-dachi",
+        facing: "northwest",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -429,18 +386,16 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "move",
-          foot: "right",
-          moving: "east",
-        },
-        {
-          type: "stance",
-          stance: "kokutsu-dachi",
-          facing: "east",
-          leadingFoot: "right",
-        },
+      move: {
+        foot: "right",
+        moving: "east",
+      },
+      stance: {
+        stance: "kokutsu-dachi",
+        facing: "east",
+        leadingFoot: "right",
+      },
+      gestures: [
         {
           type: "hand",
           side: "right",
@@ -450,18 +405,16 @@ export const HEIAN_SHODAN: Kata = {
       ],
     },
     {
-      movements: [
-        {
-          type: "move",
-          foot: "left",
-          moving: "northeast",
-        },
-        {
-          type: "stance",
-          stance: "kokutsu-dachi",
-          facing: "northeast",
-          leadingFoot: "left",
-        },
+      move: {
+        foot: "left",
+        moving: "northeast",
+      },
+      stance: {
+        stance: "kokutsu-dachi",
+        facing: "northeast",
+        leadingFoot: "left",
+      },
+      gestures: [
         {
           type: "hand",
           side: "left",
@@ -473,13 +426,14 @@ export const HEIAN_SHODAN: Kata = {
     },
 
     {
-      movements: [
-        {
-          type: "stance",
-          stance: "yoji-dachi",
-          facing: "north",
-        },
-      ],
+      move: {
+        foot: "left",
+        moving: "southwest",
+      },
+      stance: {
+        stance: "yohi-dachi",
+        facing: "north",
+      },
     },
   ],
 };

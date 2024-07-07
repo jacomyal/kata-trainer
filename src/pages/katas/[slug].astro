@@ -1,0 +1,30 @@
+---
+import { InferGetStaticPropsType } from "astro";
+
+import { KATAS, KATAS_INDEX } from "../../core/data/katas";
+import { EnrichedKata } from "../../core/data/katas/types";
+import Layout from "../../layouts/Layout.astro";
+import KataDisplay from "../../components/KataDisplay";
+
+export const getStaticPaths = () => {
+  return KATAS.map((kata) => ({
+    params: { slug: kata.slug },
+  }));
+};
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { slug } = Astro.params;
+const kata = KATAS_INDEX[slug] as EnrichedKata;
+---
+
+<Layout title={`Kata ${kata.name}`}>
+  <main class="container">
+    <section class="row">
+      <h1>{kata.name}</h1>
+
+      <p>TODO</p>
+    </section>
+
+    <KataDisplay kata={kata} client:load />
+  </main>
+</Layout>

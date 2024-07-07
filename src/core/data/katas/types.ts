@@ -1,9 +1,9 @@
 import { FootMove } from "../moves/foot.ts";
 import { HandMove } from "../moves/hand.ts";
 import { Stance } from "../moves/stance.ts";
-import type { Direction, Range, Side } from "../moves/types.ts";
+import type { Direction, FeetState, Range, Side } from "../types.ts";
 
-export type Move =
+export type Gesture =
   | {
       type: "hand";
       side: Side;
@@ -15,28 +15,36 @@ export type Move =
       side: Side;
       move: FootMove;
       direction: Direction;
-    }
-  | {
-      type: "stance";
-      stance: Stance;
-      facing: Direction;
-      moving?: Direction;
-      leadingFoot?: Side;
-    }
-  | {
-      type: "move";
-      foot: Side;
-      moving: Direction;
-      range?: Range;
     };
 
+export type StepStance = {
+  stance: Stance;
+  facing: Direction;
+  moving?: Direction;
+  leadingFoot?: Side;
+};
+
+export type StepMove = {
+  foot: Side;
+  moving: Direction;
+  range?: Range;
+};
+
 export type Step = {
-  movements: Move[];
+  move?: StepMove;
+  stance: StepStance;
+  gestures?: Gesture[];
   pause?: boolean;
   kiai?: boolean;
 };
 
 export type Kata = {
+  slug: string;
   name: string;
+  initialStance: StepStance;
   steps: Step[];
+};
+
+export type EnrichedKata = Kata & {
+  states: FeetState[];
 };
