@@ -1,4 +1,4 @@
-import type { HEIGHTS } from "./height.ts";
+import type { Height } from "./height.ts";
 
 export const HAND_MOVES = [
   // Basic punches (closed fist)
@@ -45,7 +45,7 @@ export type HandMove = (typeof HAND_MOVES)[number];
 export type HandMoveMeta = {
   englishName: string;
   japaneseName: string;
-  strikeHeight: HEIGHTS;
+  strikeHeight: Height;
   description: string;
   isClosedFist: boolean;
   otherHandPosition?: string;

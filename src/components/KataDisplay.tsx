@@ -33,7 +33,7 @@ const KataDisplay: FC<{ kata: EnrichedKata }> = ({ kata }) => {
   const [step, setStep] = useState(0);
   const feetState = useMemo(() => kata.states[step], [kata, step]);
   const checkStep = useCallback(
-    (step) => {
+    (step: number) => {
       const l = kata.steps.length;
       return ((step % l) + l) % l;
     },

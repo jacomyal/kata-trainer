@@ -28,7 +28,7 @@ export type FootState = {
 export type FeetState = Record<Side, FootState>;
 
 export const EASINGS = {
-  easeOutCubic: (t) => 1 - Math.pow(1 - t, 3),
+  easeOutCubic: (t: number) => 1 - Math.pow(1 - t, 3),
 } as const;
 
 export type EasingFunction = (t: number) => number;

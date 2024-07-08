@@ -1,4 +1,4 @@
-import { HEIGHTS } from "./height.ts";
+import type { Height } from "./height.ts";
 
 export const FOOT_MOVES = [
   // Front kicks
@@ -47,7 +47,7 @@ export type FootMove = (typeof FOOT_MOVES)[number];
 export type FootMoveMeta = {
   englishName: string;
   japaneseName: string;
-  strikeHeight: HEIGHTS;
+  strikeHeight: Height;
   description: string;
 };
 

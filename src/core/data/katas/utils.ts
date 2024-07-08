@@ -1,11 +1,11 @@
 import { mirrorFeetState } from "../../utils/positions.ts";
 import { moveFoot } from "../../utils/transitions.ts";
 import { STANCES_META } from "../moves/stance.ts";
-import { FeetState } from "../types.ts";
-import { EnrichedKata, Kata } from "./types.ts";
+import type { FeetState } from "../types.ts";
+import type { EnrichedKata, Kata } from "./types.ts";
 
 export function enrichKata(kata: Kata): EnrichedKata {
-  const { steps, initialStance } = kata;
+  const { initialStance } = kata;
   const states: FeetState[] = [
     initialStance.leadingFoot === "right"
       ? STANCES_META[initialStance.stance].rightFootLeadingState

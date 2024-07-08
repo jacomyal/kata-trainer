@@ -1,4 +1,4 @@
-import { FeetState } from "../types.ts";
+import type { FeetState } from "../types.ts";
 
 export const STANCES = [
   // Ready stances

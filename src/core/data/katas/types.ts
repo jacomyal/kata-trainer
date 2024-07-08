@@ -1,6 +1,6 @@
-import { FootMove } from "../moves/foot.ts";
-import { HandMove } from "../moves/hand.ts";
-import { Stance } from "../moves/stance.ts";
+import type { FootMove } from "../moves/foot.ts";
+import type { HandMove } from "../moves/hand.ts";
+import type { Stance } from "../moves/stance.ts";
 import type { Direction, FeetState, Range, Side } from "../types.ts";
 
 export type Gesture =
