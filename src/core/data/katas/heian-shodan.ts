@@ -17,14 +17,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "west",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "gedan-barai",
-          direction: "west",
-        },
-      ],
+      leftHand: {
+        move: "gedan-barai",
+        direction: "west",
+      },
     },
     {
       move: {
@@ -35,14 +31,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "west",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "oizuki",
-          direction: "west",
-        },
-      ],
+      rightHand: {
+        move: "tsuki",
+        direction: "west",
+      },
     },
 
     {
@@ -54,14 +46,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "gedan-barai",
-          direction: "east",
-        },
-      ],
+      rightHand: {
+        move: "gedan-barai",
+        direction: "east",
+      },
     },
     {
       move: {
@@ -73,14 +61,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "tettsui-uchi",
-          direction: "east",
-        },
-      ],
+      rightHand: {
+        move: "tettsui-uchi",
+        direction: "east",
+      },
     },
     {
       move: {
@@ -91,14 +75,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "oizuki",
-          direction: "east",
-        },
-      ],
+      leftHand: {
+        move: "tsuki",
+        direction: "east",
+      },
       pause: true,
     },
 
@@ -111,14 +91,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "north",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "gedan-barai",
-          direction: "north",
-        },
-      ],
+      leftHand: {
+        move: "gedan-barai",
+        direction: "north",
+      },
     },
     {
       move: {
@@ -129,14 +105,11 @@ export const HEIAN_SHODAN: Kata = {
         facing: "north",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "jodan-age-uke",
-          direction: "north",
-        },
-      ],
+      rightHand: {
+        move: "age-uke",
+        height: "jodan",
+        direction: "north",
+      },
     },
     {
       move: {
@@ -147,14 +120,11 @@ export const HEIAN_SHODAN: Kata = {
         facing: "north",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "jodan-age-uke",
-          direction: "north",
-        },
-      ],
+      leftHand: {
+        move: "age-uke",
+        height: "jodan",
+        direction: "north",
+      },
     },
     {
       move: {
@@ -165,14 +135,11 @@ export const HEIAN_SHODAN: Kata = {
         facing: "north",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "jodan-age-uke",
-          direction: "north",
-        },
-      ],
+      rightHand: {
+        move: "age-uke",
+        height: "jodan",
+        direction: "north",
+      },
       kiai: true,
       pause: true,
     },
@@ -186,14 +153,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "gedan-barai",
-          direction: "east",
-        },
-      ],
+      leftHand: {
+        move: "gedan-barai",
+        direction: "east",
+      },
     },
     {
       move: {
@@ -204,14 +167,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "oizuki",
-          direction: "east",
-        },
-      ],
+      rightHand: {
+        move: "tsuki",
+        direction: "east",
+      },
       pause: true,
     },
 
@@ -224,14 +183,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "west",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "gedan-barai",
-          direction: "west",
-        },
-      ],
+      rightHand: {
+        move: "gedan-barai",
+        direction: "west",
+      },
     },
     {
       move: {
@@ -242,14 +197,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "west",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "oizuki",
-          direction: "west",
-        },
-      ],
+      leftHand: {
+        move: "tsuki",
+        direction: "west",
+      },
       pause: true,
     },
 
@@ -262,14 +213,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "south",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "gedan-barai",
-          direction: "south",
-        },
-      ],
+      leftHand: {
+        move: "gedan-barai",
+        direction: "south",
+      },
     },
     {
       move: {
@@ -280,14 +227,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "south",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "oizuki",
-          direction: "south",
-        },
-      ],
+      rightHand: {
+        move: "tsuki",
+        direction: "south",
+      },
     },
     {
       move: {
@@ -298,14 +241,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "south",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "oizuki",
-          direction: "south",
-        },
-      ],
+      leftHand: {
+        move: "tsuki",
+        direction: "south",
+      },
     },
     {
       move: {
@@ -316,14 +255,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "south",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "oizuki",
-          direction: "south",
-        },
-      ],
+      rightHand: {
+        move: "tsuki",
+        direction: "south",
+      },
       kiai: true,
       pause: true,
     },
@@ -337,14 +272,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "west",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "shuto-uke",
-          direction: "west",
-        },
-      ],
+      leftHand: {
+        move: "shuto-uke",
+        direction: "west",
+      },
     },
     {
       move: {
@@ -355,14 +286,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "northwest",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "shuto-uke",
-          direction: "northwest",
-        },
-      ],
+      rightHand: {
+        move: "shuto-uke",
+        direction: "northwest",
+      },
       pause: true,
     },
 
@@ -375,14 +302,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "east",
         leadingFoot: "right",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "right",
-          move: "shuto-uke",
-          direction: "east",
-        },
-      ],
+      rightHand: {
+        move: "shuto-uke",
+        direction: "east",
+      },
     },
     {
       move: {
@@ -393,14 +316,10 @@ export const HEIAN_SHODAN: Kata = {
         facing: "northeast",
         leadingFoot: "left",
       },
-      gestures: [
-        {
-          type: "hand",
-          side: "left",
-          move: "shuto-uke",
-          direction: "northeast",
-        },
-      ],
+      leftHand: {
+        move: "shuto-uke",
+        direction: "northeast",
+      },
       pause: true,
     },
 

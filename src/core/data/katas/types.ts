@@ -1,21 +1,8 @@
 import type { FootMove } from "../moves/foot.ts";
-import type { HandMove } from "../moves/hand.ts";
+import type { HandMove } from "../moves/hand.tsx";
+import type { Height } from "../moves/height.ts";
 import type { Stance } from "../moves/stance.tsx";
 import type { Direction, FeetState, Range, Side } from "../types.ts";
-
-export type Gesture =
-  | {
-      type: "hand";
-      side: Side;
-      move: HandMove;
-      direction: Direction;
-    }
-  | {
-      type: "foot";
-      side: Side;
-      move: FootMove;
-      direction: Direction;
-    };
 
 export type StepStance = {
   stance: Stance;
@@ -28,10 +15,27 @@ export type StepMove = {
   range?: Range;
 };
 
+export type HandGesture = {
+  move: HandMove;
+  direction: Direction;
+  height?: Height;
+};
+
+export type FootGesture = {
+  move: FootMove;
+  direction: Direction;
+  height?: Height;
+};
+
 export type Step = {
   move?: StepMove;
   stance?: StepStance;
-  gestures?: Gesture[];
+  // Gestures:
+  leftHand?: HandGesture;
+  rightHand?: HandGesture;
+  leftFoot?: FootGesture;
+  rightFoot?: FootGesture;
+  // Additional information:
   pause?: boolean;
   kiai?: boolean;
 };

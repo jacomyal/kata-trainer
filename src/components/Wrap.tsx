@@ -1,4 +1,4 @@
-import { type ComponentType, type FC, ReactNode } from "react";
+import { type ComponentType, type FC, type ReactNode } from "react";
 
 const Wrap: FC<{ component: ComponentType } | { content: ReactNode }> = (props) => {
   if ("component" in props) {
