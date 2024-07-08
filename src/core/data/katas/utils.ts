@@ -13,11 +13,14 @@ export function enrichKata(kata: Kata): EnrichedKata {
   ];
 
   let state: FeetState = states[0];
+  let lastStance = initialStance;
   for (let i = 0, l = kata.steps.length; i < l; i++) {
-    const { move, stance } = kata.steps[i];
+    let { move, stance } = kata.steps[i];
+    stance = stance || lastStance;
 
     state = move ? moveFoot(state, move, stance).to : state;
     states.push(state);
+    lastStance = stance;
   }
 
   return {

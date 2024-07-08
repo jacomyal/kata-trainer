@@ -30,7 +30,7 @@ export type StepMove = {
 
 export type Step = {
   move?: StepMove;
-  stance: StepStance;
+  stance?: StepStance;
   gestures?: Gesture[];
   pause?: boolean;
   kiai?: boolean;
