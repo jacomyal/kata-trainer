@@ -1,0 +1,29 @@
+---
+import { StanceMeta, STANCES_META } from "../../core/data/moves/stance";
+import Layout from "../../layouts/Layout.astro";
+import { FeetStateDisplay } from "../../components/KataDisplay";
+import Wrap from "../../components/Wrap";
+import { STANCES } from "../../core/data/moves/stance";
+
+export const getStaticPaths = () => {
+  return STANCES.map((slug) => ({
+    params: { slug },
+  }));
+};
+
+const { slug } = Astro.params;
+const stance = STANCES_META[slug] as StanceMeta;
+---
+
+<Layout title={`Stance ${stance.englishName}`}>
+  <main class="container">
+    <section class="row">
+      <h1>{stance.englishName}</h1>
+      <p class="fs-4">{stance.japaneseName}</p>
+
+      <p><Wrap content={stance.description} /></p>
+    </section>
+
+    <FeetStateDisplay state={stance.rightFootLeadingState} client:load />
+  </main>
+</Layout>

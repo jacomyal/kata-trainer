@@ -353,7 +353,7 @@ export const HEIAN_NIDAN: Kata = {
         foot: "right",
       },
       stance: {
-        stance: "renoji-dachi",
+        stance: "han-zenkutsu-dachi",
         facing: "south",
         leadingFoot: "right",
       },

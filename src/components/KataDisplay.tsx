@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import type { EnrichedKata } from "../core/data/katas/types.ts";
 import type { FeetState } from "../core/data/types.ts";
 
-const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) => {
+export const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) => {
   return (
     <div className="feet-state border">
       <div>

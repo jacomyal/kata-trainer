@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { KATAS } from "../core/data/katas";
+import { STANCES, STANCES_META } from "../core/data/moves/stance";
 ---
 
 <Layout title="Shotokan Karate">
@@ -12,17 +13,33 @@ import { KATAS } from "../core/data/katas";
     </section>
 
     <section class="row">
-      <h2>Katas:</h2>
+      <div class="col-6">
+        <h2>Katas</h2>
 
-      <ul class="unstyled">
-        {
-          KATAS.map((kata) => (
-            <li>
-              <a href={`/katas/${kata.slug}`}>{kata.name}</a>
-            </li>
-          ))
-        }
-      </ul>
+        <ul class="unstyled">
+          {
+            KATAS.map((kata) => (
+              <li>
+                <a href={`/katas/${kata.slug}`}>{kata.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="col-6">
+        <h2>Stances</h2>
+
+        <ul class="unstyled">
+          {
+            STANCES.map((slug) => (
+              <li>
+                <a href={`/stances/${slug}`}>{STANCES_META[slug].englishName}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </section>
   </main>
 </Layout>

@@ -1,5 +1,5 @@
 import type { StepMove, StepStance } from "../data/katas/types.ts";
-import { STANCES_META } from "../data/moves/stance.ts";
+import { STANCES_META } from "../data/moves/stance.tsx";
 import type { Easing, FeetState, Transition } from "../data/types.ts";
 import { getOtherSide, mirrorFeetState, transformFeetState } from "./positions.ts";
 
