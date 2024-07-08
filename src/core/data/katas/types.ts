@@ -20,13 +20,11 @@ export type Gesture =
 export type StepStance = {
   stance: Stance;
   facing: Direction;
-  moving?: Direction;
   leadingFoot?: Side;
 };
 
 export type StepMove = {
   foot: Side;
-  moving: Direction;
   range?: Range;
 };
 

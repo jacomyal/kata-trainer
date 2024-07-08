@@ -73,7 +73,7 @@ export const HEIAN_SHODAN: Kata = {
         range: "short",
       },
       stance: {
-        stance: "zenkutsu-dachi",
+        stance: "renoji-dachi",
         facing: "east",
         leadingFoot: "right",
       },

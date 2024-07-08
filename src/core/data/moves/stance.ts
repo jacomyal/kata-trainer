@@ -284,12 +284,12 @@ export const STANCES_META: Record<Stance, StanceMeta> = {
     description: "Stance with feet forming an L shape, one foot placed at a 90-degree angle to the other",
     rightFootLeadingState: {
       left: {
-        heel: { x: -30, y: 0 },
-        angle: Math.PI / 2,
+        heel: { x: -10, y: -10 },
+        angle: (Math.PI * 2) / 3,
       },
       right: {
-        heel: { x: 10, y: 30 },
-        angle: 0,
+        heel: { x: 10, y: 10 },
+        angle: Math.PI / 2,
       },
     },
   },

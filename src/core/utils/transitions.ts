@@ -1,6 +1,7 @@
 import type { Gesture, StepMove, StepStance } from "../data/katas/types.ts";
 import { STANCES_META } from "../data/moves/stance.ts";
 import type { Easing, FeetState, Transition } from "../data/types.ts";
+import { Direction } from "../data/types.ts";
 import { getOtherSide, mirrorFeetState, transformFeetState } from "./positions.ts";
 
 export const DEFAULT_DURATION = 700;
@@ -17,7 +18,7 @@ export function moveFoot(feetState: FeetState, move: StepMove, target: StepStanc
   const targetState = transformFeetState(stanceFeetState, {
     side: fixedFoot,
     position: feetState[fixedFoot].heel,
-    direction: move.moving,
+    direction: target.facing,
   });
 
   return {
