@@ -2,13 +2,13 @@ export const HEIGHTS = ["jodan", "chudan", "gedan"] as const;
 
 export type Height = (typeof HEIGHTS)[number];
 
-export type HeightMeta = {
+export type RawHeightMeta = {
   englishName: string;
   japaneseName: string;
   description: string;
 };
 
-export const HEIGHTS_META: Record<Height, HeightMeta> = {
+export const RAW_HEIGHTS_META: Record<Height, RawHeightMeta> = {
   jodan: {
     englishName: "Upper Level",
     japaneseName: "上段",

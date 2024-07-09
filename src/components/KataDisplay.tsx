@@ -1,8 +1,7 @@
 import type { FC } from "react";
 import { useCallback, useMemo, useState } from "react";
 
-import type { EnrichedKata } from "../core/data/katas/types.ts";
-import type { FeetState } from "../core/data/types.ts";
+import type { FeetState, Kata } from "../core/data";
 
 export const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) => {
   return (
@@ -29,7 +28,7 @@ export const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, righ
   );
 };
 
-const KataDisplay: FC<{ kata: EnrichedKata }> = ({ kata }) => {
+const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
   const [step, setStep] = useState(0);
   const feetState = useMemo(() => kata.states[step], [kata, step]);
   const checkStep = useCallback(

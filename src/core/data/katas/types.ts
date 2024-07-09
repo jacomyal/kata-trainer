@@ -1,8 +1,8 @@
-import type { FootMove } from "../moves/foot.ts";
+import type { FootMove } from "../moves/foot.tsx";
 import type { HandMove } from "../moves/hand.tsx";
 import type { Height } from "../moves/height.ts";
 import type { Stance } from "../moves/stance.tsx";
-import type { Direction, FeetState, Range, Side } from "../types.ts";
+import type { Direction, Range, Side } from "../types.ts";
 
 export type StepStance = {
   stance: Stance;
@@ -40,13 +40,9 @@ export type Step = {
   kiai?: boolean;
 };
 
-export type Kata = {
+export type RawKata = {
   slug: string;
   name: string;
   initialStance: StepStance;
   steps: Step[];
-};
-
-export type EnrichedKata = Kata & {
-  states: FeetState[];
 };

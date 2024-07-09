@@ -1,3 +1,8 @@
+import type { RawKata } from "./katas/types.ts";
+import type { FootMove, RawFootMoveMeta } from "./moves/foot.tsx";
+import type { HandMove, RawHandMoveMeta } from "./moves/hand.tsx";
+import type { RawStanceMeta, Stance } from "./moves/stance.tsx";
+
 export type Direction = "north" | "south" | "east" | "west" | "northeast" | "northwest" | "southeast" | "southwest";
 
 export const DIRECTION_ANGLES: Record<Direction, number> = {
@@ -40,4 +45,22 @@ export type Transition<T> = {
   from: T;
   to: T;
   easing: Easing;
+};
+
+// Enriched data types:
+export type Kata = RawKata & {
+  states: FeetState[];
+  stances: Partial<Record<Stance, number>>;
+  handMoves: Partial<Record<HandMove, number>>;
+  footMoves: Partial<Record<FootMove, number>>;
+};
+
+export type StanceMeta = RawStanceMeta & {
+  katas: Partial<Record<string, number>>;
+};
+export type HandMoveMeta = RawHandMoveMeta & {
+  katas: Partial<Record<string, number>>;
+};
+export type FootMoveMeta = RawFootMoveMeta & {
+  katas: Partial<Record<string, number>>;
 };

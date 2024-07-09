@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { KATAS } from "../core/data/katas";
-import { STANCES, STANCES_META } from "../core/data/moves/stance";
-import { HAND_MOVES, HAND_MOVES_META } from "../core/data/moves/hand";
+import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCES, STANCES_META } from "../core/data";
 ---
 
 <Layout title="Shotokan Karate">
@@ -27,7 +25,9 @@ import { HAND_MOVES, HAND_MOVES_META } from "../core/data/moves/hand";
           }
         </ul>
       </div>
+    </section>
 
+    <section class="row">
       <div class="col-4">
         <h2>Stances</h2>
 
@@ -50,6 +50,20 @@ import { HAND_MOVES, HAND_MOVES_META } from "../core/data/moves/hand";
             HAND_MOVES.map((slug) => (
               <li>
                 <a href={`/hands/${slug}`}>{HAND_MOVES_META[slug].englishName}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <h2>Foot moves</h2>
+
+        <ul class="unstyled">
+          {
+            FOOT_MOVES.map((slug) => (
+              <li>
+                <a href={`/feet/${slug}`}>{FOOT_MOVES_META[slug].name}</a>
               </li>
             ))
           }

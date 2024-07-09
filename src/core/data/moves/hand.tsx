@@ -23,7 +23,7 @@ export const HAND_MOVES = [
 
 export type HandMove = (typeof HAND_MOVES)[number];
 
-export type HandMoveMeta = {
+export type RawHandMoveMeta = {
   englishName: string;
   japaneseName: string;
   description: ReactNode;
@@ -32,7 +32,7 @@ export type HandMoveMeta = {
   defaultOtherHandPosition?: HandMove;
 };
 
-export const HAND_MOVES_META: Record<string, HandMoveMeta> = {
+export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
   hikite: {
     englishName: "Pulling Hand",
     japaneseName: "引き手",

@@ -1,8 +1,7 @@
 ---
-import { KATAS, KATAS_INDEX } from "../../core/data/katas";
-import type { EnrichedKata } from "../../core/data/katas/types";
 import Layout from "../../layouts/Layout.astro";
 import KataDisplay from "../../components/KataDisplay";
+import { KATAS, KATAS_INDEX, type Kata } from "../../core/data";
 
 export const getStaticPaths = () => {
   return KATAS.map((kata) => ({
@@ -11,7 +10,7 @@ export const getStaticPaths = () => {
 };
 
 const { slug } = Astro.params;
-const kata = KATAS_INDEX[slug] as EnrichedKata;
+const kata = KATAS_INDEX[slug] as Kata;
 ---
 
 <Layout title={`Kata ${kata.name}`}>

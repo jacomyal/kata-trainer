@@ -1,9 +1,8 @@
 ---
-import { type StanceMeta, STANCES_META } from "../../core/data/moves/stance";
 import Layout from "../../layouts/Layout.astro";
 import { FeetStateDisplay } from "../../components/KataDisplay";
 import Wrap from "../../components/Wrap";
-import { STANCES } from "../../core/data/moves/stance";
+import { STANCES, STANCES_META, type StanceMeta } from "../../core/data";
 
 export const getStaticPaths = () => {
   return STANCES.map((slug) => ({

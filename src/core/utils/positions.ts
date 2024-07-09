@@ -1,4 +1,4 @@
-import { DIRECTION_ANGLES, type Direction, type FeetState, type Position, type Side } from "../data/types.ts";
+import { DIRECTION_ANGLES, type Direction, type FeetState, type Position, type Side } from "../data";
 
 export function getOtherSide(side: Side): Side {
   return side === "left" ? "right" : "left";

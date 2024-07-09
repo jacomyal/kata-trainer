@@ -1,7 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Wrap from "../../components/Wrap";
-import { HAND_MOVES, HAND_MOVES_META, type HandMoveMeta } from "../../core/data/moves/hand";
+import { HAND_MOVES, HAND_MOVES_META, type HandMoveMeta } from "../../core/data";
 
 export const getStaticPaths = () => {
   return HAND_MOVES.map((slug) => ({

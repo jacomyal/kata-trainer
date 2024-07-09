@@ -12,14 +12,14 @@ export const STANCES = [
 
 export type Stance = (typeof STANCES)[number];
 
-export type StanceMeta = {
+export type RawStanceMeta = {
   englishName: string;
   japaneseName: string;
   description: ReactNode;
   rightFootLeadingState: FeetState;
 };
 
-export const STANCES_META: Record<Stance, StanceMeta> = {
+export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
   "yohi-dachi": {
     englishName: "Parallel stance",
     japaneseName: "平行立ち",

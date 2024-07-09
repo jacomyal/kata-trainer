@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Wrap from "../../components/Wrap";
+import { FOOT_MOVES, FOOT_MOVES_META, type FootMoveMeta } from "../../core/data";
+
+export const getStaticPaths = () => {
+  return FOOT_MOVES.map((slug) => ({
+    params: { slug },
+  }));
+};
+
+const { slug } = Astro.params;
+const footMove = FOOT_MOVES_META[slug] as FootMoveMeta;
+---
+
+<Layout title={`Stance ${footMove.name}`}>
+  <main class="container">
+    <section class="row">
+      <h1>{footMove.name}</h1>
+      <p class="fs-4">{footMove.japaneseName}</p>
+
+      <p><Wrap content={footMove.description} /></p>
+    </section>
+  </main>
+</Layout>

@@ -1,6 +1,6 @@
-import type { Kata } from "./types.ts";
+import type { RawKata } from "./types.ts";
 
-export const HEIAN_NIDAN: Kata = {
+export const HEIAN_NIDAN: RawKata = {
   slug: "heian-nidan",
   name: "Heian Nidan",
   initialStance: {

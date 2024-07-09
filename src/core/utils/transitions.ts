@@ -1,6 +1,4 @@
-import type { StepMove, StepStance } from "../data/katas/types.ts";
-import { STANCES_META } from "../data/moves/stance.tsx";
-import type { Easing, FeetState, Transition } from "../data/types.ts";
+import { type Easing, type FeetState, STANCES_META, type StepMove, type StepStance, type Transition } from "../data";
 import { getOtherSide, mirrorFeetState, transformFeetState } from "./positions.ts";
 
 export const DEFAULT_DURATION = 700;
