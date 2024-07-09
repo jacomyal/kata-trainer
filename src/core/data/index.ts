@@ -26,16 +26,19 @@ export const KATAS: Kata[] = RAW_KATAS.map((kata) => ({
 }));
 export const KATAS_INDEX = keyBy(KATAS, "slug");
 
-export const STANCES_META = mapValues(RAW_STANCES_META, (meta: RawStanceMeta) => ({
+export const STANCES_META = mapValues(RAW_STANCES_META, (meta: RawStanceMeta, slug: Stance) => ({
   ...meta,
+  slug,
   katas: {},
 })) as Record<Stance, StanceMeta>;
-export const HAND_MOVES_META = mapValues(RAW_HAND_MOVES_META, (meta: RawHandMoveMeta) => ({
+export const HAND_MOVES_META = mapValues(RAW_HAND_MOVES_META, (meta: RawHandMoveMeta, slug: HandMove) => ({
   ...meta,
+  slug,
   katas: {},
 })) as Record<HandMove, HandMoveMeta>;
-export const FOOT_MOVES_META = mapValues(RAW_FOOT_MOVES_META, (meta: RawFootMoveMeta) => ({
+export const FOOT_MOVES_META = mapValues(RAW_FOOT_MOVES_META, (meta: RawFootMoveMeta, slug: FootMove) => ({
   ...meta,
+  slug,
   katas: {},
 })) as Record<FootMove, FootMoveMeta>;
 

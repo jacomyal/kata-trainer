@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import type { FootMove } from "../moves/foot.tsx";
 import type { HandMove } from "../moves/hand.tsx";
 import type { Height } from "../moves/height.ts";
@@ -43,6 +45,8 @@ export type Step = {
 export type RawKata = {
   slug: string;
   name: string;
+  japaneseName: string;
+  description: ReactNode;
   initialStance: StepStance;
   steps: Step[];
 };

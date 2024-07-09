@@ -1,7 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import { chain } from "lodash-es";
+
+import Wrap from "../../components/Wrap";
 import KataDisplay from "../../components/KataDisplay";
-import { KATAS, KATAS_INDEX, type Kata } from "../../core/data";
+import Layout from "../../layouts/Layout.astro";
+import { KATAS, KATAS_INDEX, type Kata, STANCES_META, FOOT_MOVES_META, HAND_MOVES_META } from "../../core/data";
 
 export const getStaticPaths = () => {
   return KATAS.map((kata) => ({
@@ -11,16 +14,83 @@ export const getStaticPaths = () => {
 
 const { slug } = Astro.params;
 const kata = KATAS_INDEX[slug] as Kata;
+
+const stances = chain(kata.stances)
+  .toPairs()
+  .sortBy(([_, count]) => -count)
+  .map(([stance, count]) => ({
+    stance: STANCES_META[stance],
+    count,
+  }));
+const handMoves = chain(kata.handMoves)
+  .toPairs()
+  .sortBy(([_, count]) => -count)
+  .map(([handMove, count]) => ({
+    handMove: HAND_MOVES_META[handMove],
+    count,
+  }));
+const footMoves = chain(kata.footMoves)
+  .toPairs()
+  .sortBy(([_, count]) => -count)
+  .map(([footMove, count]) => ({
+    footMove: FOOT_MOVES_META[footMove],
+    count,
+  }));
 ---
 
 <Layout title={`Kata ${kata.name}`}>
   <main class="container">
+    <KataDisplay kata={kata} client:load />
+
     <section class="row">
       <h1>{kata.name}</h1>
+      <p class="fs-4">{kata.japaneseName}</p>
 
-      <p>TODO</p>
+      <p><Wrap content={kata.description} /></p>
     </section>
 
-    <KataDisplay kata={kata} client:load />
+    <section class="row">
+      <div class="col-4">
+        <h2>Stances</h2>
+
+        <ul class="unstyled">
+          {
+            stances.map(({ stance, count }) => (
+              <li>
+                <a href={`/stances/${stance.slug}`}>{stance.englishName}</a> <span class="text-muted">({count})</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <h2>Hand moves</h2>
+
+        <ul class="unstyled">
+          {
+            handMoves.map(({ handMove, count }) => (
+              <li>
+                <a href={`/hands/${handMove.slug}`}>{handMove.englishName}</a> <span class="text-muted">({count})</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="col-4">
+        <h2>Foot move</h2>
+
+        <ul class="unstyled">
+          {
+            footMoves.map(({ footMove, count }) => (
+              <li>
+                <a href={`/feet/${footMove.slug}`}>{footMove.name}</a> <span class="text-muted">({count})</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
   </main>
 </Layout>

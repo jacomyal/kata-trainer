@@ -56,11 +56,14 @@ export type Kata = RawKata & {
 };
 
 export type StanceMeta = RawStanceMeta & {
+  slug: Stance;
   katas: Partial<Record<string, number>>;
 };
 export type HandMoveMeta = RawHandMoveMeta & {
+  slug: HandMove;
   katas: Partial<Record<string, number>>;
 };
 export type FootMoveMeta = RawFootMoveMeta & {
+  slug: FootMove;
   katas: Partial<Record<string, number>>;
 };
