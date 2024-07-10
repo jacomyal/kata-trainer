@@ -2,3 +2,7 @@ body {
   font-optical-sizing: auto;
   font-variation-settings: "wdth" 100;
 }
+
+.headings-font {
+  font-family: $headings-font-family !important;
+}
