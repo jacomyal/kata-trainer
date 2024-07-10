@@ -1,4 +1,12 @@
-import { DIRECTION_ANGLES, type Direction, type FeetState, type Position, type Side } from "../data";
+import {
+  AngledPosition,
+  BodyState,
+  DIRECTION_ANGLES,
+  type Direction,
+  type FeetState,
+  type Position,
+  type Side,
+} from "../data";
 
 export function getOtherSide(side: Side): Side {
   return side === "left" ? "right" : "left";
@@ -11,73 +19,79 @@ export function diff(p1: Position, p2: Position): Position {
   };
 }
 
-export function add(p1: Position, p2: Position): Position {
+export function add<T extends Position | AngledPosition>(point: T, vector: Position): T {
   return {
-    x: p1.x + p2.x,
-    y: p1.y + p2.y,
+    ...point,
+    x: point.x + vector.x,
+    y: point.y + vector.y,
   };
 }
 
-export function rotate(point: Position, center: Position, angle: number): Position {
+export function rotate(point: AngledPosition, center: Position, angle: number): AngledPosition {
   const d = diff(center, point);
   const cos = Math.cos(angle);
   const sin = Math.sin(angle);
 
   return {
+    angle: point.angle + angle,
     x: center.x + (d.x * cos - d.y * sin),
     y: center.y + (d.x * sin + d.y * cos),
   };
 }
 
 export function mirrorAngle(angle: number): number {
-  return Math.PI - angle;
+  return -angle;
 }
 
-export function mirrorPosition({ x, y }: Position): Position {
+export function mirrorPosition<T extends AngledPosition>(position: T): T {
   return {
-    x: -x,
-    y,
+    ...position,
+    x: -position.x,
+    y: position.y,
+    angle: mirrorAngle(position.angle),
   };
 }
 
-export function mirrorFeetState({ left, right }: FeetState): FeetState {
+export function mirrorPositions<T extends FeetState>(state: T): T {
   return {
-    left: {
-      angle: mirrorAngle(right.angle),
-      heel: mirrorPosition(right.heel),
-    },
-    right: {
-      angle: mirrorAngle(left.angle),
-      heel: mirrorPosition(left.heel),
-    },
+    ...state,
+    left: mirrorPosition(state.right),
+    right: mirrorPosition(state.left),
   };
 }
 
-export function transformFeetState(
-  feetState: FeetState,
+export function mirrorBodyState({ pelvis, feet, hands }: BodyState): BodyState {
+  return {
+    pelvis: mirrorPosition(pelvis),
+    feet: mirrorPositions(feet),
+    hands: mirrorPositions(hands),
+  };
+}
+
+export function transformBodyState(
+  bodyState: BodyState,
   anchor: { side: Side; position: Position; direction: Direction },
-): FeetState {
-  const translationVector: Position = diff(feetState[anchor.side].heel, anchor.position);
+): BodyState {
+  const translationVector: Position = diff(bodyState.feet[anchor.side], anchor.position);
 
   const angle = DIRECTION_ANGLES[anchor.direction] - Math.PI / 2;
   const otherSide = getOtherSide(anchor.side);
 
   // Translate:
-  const res: FeetState = {
-    left: {
-      heel: add(feetState.left.heel, translationVector),
-      angle: feetState.left.angle,
-    },
-    right: {
-      heel: add(feetState.right.heel, translationVector),
-      angle: feetState.right.angle,
+  const res: BodyState = {
+    hands: bodyState.hands,
+    pelvis: add(bodyState.pelvis, translationVector),
+    feet: {
+      left: add(bodyState.feet.left, translationVector),
+      right: add(bodyState.feet.right, translationVector),
     },
   };
 
-  // Rotate:
-  res[otherSide].heel = rotate(res[otherSide].heel, res[anchor.side].heel, angle);
-  res[anchor.side].angle += angle;
-  res[otherSide].angle += angle;
+  // Rotate feet:
+  const targetPosition = res.feet[anchor.side];
+  res.feet[otherSide] = rotate(res.feet[otherSide], targetPosition, angle);
+  res.feet[anchor.side].angle += angle;
+  res.pelvis = rotate(res.pelvis, targetPosition, angle);
 
   return res;
 }

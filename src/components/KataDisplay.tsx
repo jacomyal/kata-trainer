@@ -1,26 +1,36 @@
 import type { FC } from "react";
 import { useCallback, useMemo, useState } from "react";
 
-import type { FeetState, Kata } from "../core/data";
+import type { BodyState, Kata } from "../core/data";
 
-export const FeetStateDisplay: FC<{ state: FeetState }> = ({ state: { left, right } }) => {
+export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, pelvis } }) => {
   return (
-    <div className="feet-state border">
-      <div>
+    <div className="body-state border">
+      <div className="feet">
         <div
           className="foot foot-left"
           style={{
-            top: -left.heel.y + "cm",
-            left: left.heel.x + "cm",
-            transform: `rotate(${-left.angle}rad)`,
+            top: -feet.left.y + "cm",
+            left: feet.left.x + "cm",
+            transform: `rotate(${-feet.left.angle - Math.PI / 2}rad)`,
           }}
         />
         <div
           className="foot foot-right"
           style={{
-            top: -right.heel.y + "cm",
-            left: right.heel.x + "cm",
-            transform: `rotate(${-right.angle}rad)`,
+            top: -feet.right.y + "cm",
+            left: feet.right.x + "cm",
+            transform: `rotate(${-feet.right.angle - Math.PI / 2}rad)`,
+          }}
+        />
+      </div>
+      <div>
+        <div
+          className="body"
+          style={{
+            top: -pelvis.y + "cm",
+            left: pelvis.x + "cm",
+            transform: `rotate(${-pelvis.angle - Math.PI / 2}rad)`,
           }}
         />
       </div>
@@ -39,9 +49,12 @@ const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
     [kata],
   );
 
+  console.log(JSON.stringify(kata, null, "  "));
+
   return (
     <section className="row">
-      <FeetStateDisplay state={feetState} />
+      <BodyStateDisplay state={feetState} />
+
       <div className="text-center mt-2">
         <button className="btn btn-outline-primary" onClick={() => setStep(checkStep(step - 1))}>
           ←

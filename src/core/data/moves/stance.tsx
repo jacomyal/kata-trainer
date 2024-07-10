@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import type { FeetState } from "../types.ts";
+import type { BodyState } from "../types.ts";
 
 export const STANCES = [
   "yohi-dachi",
@@ -17,7 +17,7 @@ export type RawStanceMeta = {
   kanji: string;
   romaji: string;
   description: ReactNode;
-  rightFootLeadingState: FeetState;
+  rightFootLeadingState: BodyState["feet"];
 };
 
 export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
@@ -34,12 +34,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     ),
     rightFootLeadingState: {
       left: {
-        heel: { x: -20, y: 0 },
-        angle: Math.PI / 2,
+        x: -20,
+        y: 0,
+        angle: 0,
       },
       right: {
-        heel: { x: 20, y: 0 },
-        angle: Math.PI / 2,
+        x: 20,
+        y: 0,
+        angle: 0,
       },
     },
   },
@@ -55,12 +57,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     ),
     rightFootLeadingState: {
       left: {
-        heel: { x: -6, y: 0 },
-        angle: Math.PI / 2,
+        x: -6,
+        y: 0,
+        angle: 0,
       },
       right: {
-        heel: { x: 6, y: 0 },
-        angle: Math.PI / 2,
+        x: 6,
+        y: 0,
+        angle: 0,
       },
     },
   },
@@ -80,12 +84,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     ),
     rightFootLeadingState: {
       left: {
-        heel: { x: -20, y: -30 },
-        angle: Math.PI / 2 + Math.PI / 12,
+        x: -20,
+        y: -40,
+        angle: Math.PI / 10,
       },
       right: {
-        heel: { x: 20, y: 30 },
-        angle: Math.PI / 2,
+        x: 20,
+        y: 20,
+        angle: 0,
       },
     },
   },
@@ -103,12 +109,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     ),
     rightFootLeadingState: {
       left: {
-        heel: { x: -20, y: -20 },
-        angle: Math.PI / 2 + Math.PI / 12,
+        x: -20,
+        y: -15,
+        angle: Math.PI / 10,
       },
       right: {
-        heel: { x: 20, y: 20 },
-        angle: Math.PI / 2,
+        x: 20,
+        y: 25,
+        angle: 0,
       },
     },
   },
@@ -125,12 +133,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     ),
     rightFootLeadingState: {
       left: {
-        heel: { x: 0, y: -60 },
-        angle: Math.PI,
+        x: 0,
+        y: -10,
+        angle: Math.PI / 2,
       },
       right: {
-        heel: { x: 0, y: 0 },
-        angle: Math.PI / 2,
+        x: 0,
+        y: 50,
+        angle: 0,
       },
     },
   },

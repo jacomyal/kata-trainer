@@ -1,6 +1,6 @@
 @use "sass:math";
 
-.feet-state {
+.body-state {
   $height: 600px;
 
   position: relative;
@@ -31,6 +31,27 @@
 
     &.foot-right::after {
       transform: scaleY(-1);
+    }
+  }
+
+  .body {
+    position: absolute;
+    width: 0;
+    height: 0;
+
+    transition: all 0.5s ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 35cm;
+      height: 70cm;
+      bottom: -35cm;
+      left: -5cm;
+      background: url(/images/body.svg);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      background-position: center;
     }
   }
 }

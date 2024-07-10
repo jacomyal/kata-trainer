@@ -1,14 +1,14 @@
 import { keyBy, mapValues } from "lodash-es";
 
-import { mirrorFeetState } from "../utils/positions.ts";
+import { mirrorBodyState } from "../utils/positions.ts";
 import { moveFoot } from "../utils/transitions.ts";
 import { RAW_KATAS } from "./katas";
 import type { FootMove, RawFootMoveMeta } from "./moves/foot.tsx";
 import { RAW_FOOT_MOVES_META } from "./moves/foot.tsx";
 import { type HandMove, RAW_HAND_MOVES_META, type RawHandMoveMeta } from "./moves/hand.tsx";
 import { RAW_STANCES_META, type RawStanceMeta, type Stance } from "./moves/stance.tsx";
-import type { FootMoveMeta, HandMoveMeta, Kata, StanceMeta } from "./types.ts";
-import type { FeetState } from "./types.ts";
+import type { BodyState, FootMoveMeta, HandMoveMeta, Kata, StanceMeta } from "./types.ts";
+import { DEFAULT_BODY_STATE } from "./types.ts";
 
 export { FOOT_MOVES } from "./moves/foot.tsx";
 export { HAND_MOVES } from "./moves/hand.tsx";
@@ -49,13 +49,14 @@ function _indexData(): void {
   KATAS.forEach((kata) => {
     const slug = kata.slug;
     let lastStance = kata.initialStance;
-    kata.states = [
-      lastStance.leadingFoot === "right"
-        ? RAW_STANCES_META[lastStance.stance].rightFootLeadingState
-        : mirrorFeetState(RAW_STANCES_META[lastStance.stance].rightFootLeadingState),
-    ];
+    const initialBodyState = {
+      ...DEFAULT_BODY_STATE,
+      feet: RAW_STANCES_META[lastStance.stance].rightFootLeadingState,
+    };
 
-    let state: FeetState = kata.states[0];
+    kata.states = [lastStance.leadingFoot === "right" ? initialBodyState : mirrorBodyState(initialBodyState)];
+
+    let state: BodyState = kata.states[0];
     for (let i = 0, l = kata.steps.length; i < l; i++) {
       const step = kata.steps[i];
       const { move, stance: stepStance, leftHand, rightHand, leftFoot, rightFoot } = step;

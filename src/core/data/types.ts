@@ -21,16 +21,62 @@ export type Side = "left" | "right";
 export type Range = "short" | "full-step";
 
 export type Position = {
-  x: number;
-  y: number;
+  x: number; // in meters, compared to dojo origin
+  y: number; // in meters, compared to dojo origin
 };
 
-export type FootState = {
-  heel: Position; // in meters
-  angle: number; // in radian
+export type AngledPosition = Position & {
+  angle: number; // in radian, compared to north (i.e. north is 0, south is PI...)
 };
 
-export type FeetState = Record<Side, FootState>;
+export type BodyState = {
+  // Pelvis and feet are positioned relatively to the dojo's origin:
+  pelvis: AngledPosition;
+  feet: Record<Side, AngledPosition>;
+  // Hands are positioned relatively to the pelvis
+  hands: Record<Side, AngledPosition & { closedFist: boolean }>;
+};
+
+export type FeetState = BodyState["feet"];
+export type HandsState = BodyState["hands"];
+
+export const DEFAULT_HANDS_POSITION: BodyState["hands"] = {
+  left: {
+    x: -10,
+    y: 0,
+    angle: Math.PI / 2,
+    closedFist: true,
+  },
+  right: {
+    x: 10,
+    y: 0,
+    angle: -Math.PI / 2,
+    closedFist: true,
+  },
+};
+
+export const DEFAULT_FEET_POSITION: BodyState["feet"] = {
+  left: {
+    x: -15,
+    y: 0,
+    angle: 0,
+  },
+  right: {
+    x: 15,
+    y: 0,
+    angle: 0,
+  },
+};
+
+export const DEFAULT_BODY_STATE: BodyState = {
+  hands: DEFAULT_HANDS_POSITION,
+  feet: DEFAULT_FEET_POSITION,
+  pelvis: {
+    x: 0,
+    y: 0,
+    angle: 0,
+  },
+};
 
 export const EASINGS = {
   easeOutCubic: (t: number) => 1 - Math.pow(1 - t, 3),
@@ -49,7 +95,7 @@ export type Transition<T> = {
 
 // Enriched data types:
 export type Kata = RawKata & {
-  states: FeetState[];
+  states: BodyState[];
   stances: Partial<Record<Stance, number>>;
   handMoves: Partial<Record<HandMove, number>>;
   footMoves: Partial<Record<FootMove, number>>;
