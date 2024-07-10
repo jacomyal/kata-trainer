@@ -13,16 +13,18 @@ export const STANCES = [
 export type Stance = (typeof STANCES)[number];
 
 export type RawStanceMeta = {
-  englishName: string;
-  japaneseName: string;
+  name: string;
+  kanji: string;
+  romaji: string;
   description: ReactNode;
   rightFootLeadingState: FeetState;
 };
 
 export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
   "yohi-dachi": {
-    englishName: "Parallel stance",
-    japaneseName: "平行立ち",
+    name: "Parallel stance",
+    kanji: "平行立ち",
+    romaji: "Yohi Dachi",
     description: (
       <>
         Heiko-dachi is an attention stance or "get ready" stance used in some styles. It is generally performed after
@@ -42,8 +44,9 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "heisoku-dachi": {
-    englishName: "Closed Foot Stance",
-    japaneseName: "閉足立ち",
+    name: "Closed Foot Stance",
+    kanji: "閉足立ち",
+    romaji: "Heisoku Dachi",
     description: (
       <>
         Heisoku-dachi is the ready stance used in some kata. It is similar to musubi-dachi, but the feet are kept
@@ -62,8 +65,9 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "zenkutsu-dachi": {
-    englishName: "Front Stance",
-    japaneseName: "前屈立ち",
+    name: "Front Stance",
+    kanji: "前屈立ち",
+    romaji: "Zenkutsu Dachi",
     description: (
       <>
         Zenkutsu-dachi, a.k.a. forward stance, is one of the most common stances in Karate. It’s a stance that allows
@@ -86,8 +90,9 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "han-zenkutsu-dachi": {
-    englishName: "Half Front Stance",
-    japaneseName: "半前屈立ち",
+    name: "Half Front Stance",
+    kanji: "半前屈立ち",
+    romaji: "Han Zenkutsu Dachi",
     description: (
       <>
         Han Zenkutsu-dachi is the shorter or half version of Zenkutsu-dachi. It’s a stance suitable for self-defense and
@@ -108,8 +113,9 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "kokutsu-dachi": {
-    englishName: "Back Stance",
-    japaneseName: "後屈立ち",
+    name: "Back Stance",
+    kanji: "後屈立ち",
+    romaji: "Kokutsu Dachi",
     description: (
       <>
         Kokutsu-dachi is a defensive position that allows you to quickly retreat or move back and counterattack. It’s

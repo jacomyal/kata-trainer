@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Name from "../../components/Name";
 import Wrap from "../../components/Wrap";
 import { HAND_MOVES, HAND_MOVES_META, type HandMoveMeta } from "../../core/data";
 
@@ -13,11 +14,10 @@ const { slug } = Astro.params;
 const handMove = HAND_MOVES_META[slug] as HandMoveMeta;
 ---
 
-<Layout title={`Stance ${handMove.englishName}`}>
+<Layout title={`Stance ${handMove.name}`}>
   <main class="container">
     <section class="row">
-      <h1>{handMove.englishName}</h1>
-      <p class="fs-4">{handMove.japaneseName}</p>
+      <h1><Name data={handMove} /></h1>
 
       <p><Wrap content={handMove.description} /></p>
     </section>

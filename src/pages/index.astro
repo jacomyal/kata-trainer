@@ -1,4 +1,5 @@
 ---
+import Name from "../components/Name";
 import Layout from "../layouts/Layout.astro";
 import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCES, STANCES_META } from "../core/data";
 ---
@@ -19,7 +20,9 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             KATAS.map((kata) => (
               <li>
-                <a href={`/katas/${kata.slug}`}>{kata.name}</a>
+                <a href={`/katas/${kata.slug}`}>
+                  <Name data={kata} />
+                </a>
               </li>
             ))
           }
@@ -35,7 +38,9 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             STANCES.map((slug) => (
               <li>
-                <a href={`/stances/${slug}`}>{STANCES_META[slug].englishName}</a>
+                <a href={`/stances/${slug}`}>
+                  <Name data={STANCES_META[slug]} />
+                </a>
               </li>
             ))
           }
@@ -49,7 +54,9 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             HAND_MOVES.map((slug) => (
               <li>
-                <a href={`/hands/${slug}`}>{HAND_MOVES_META[slug].englishName}</a>
+                <a href={`/hands/${slug}`}>
+                  <Name data={HAND_MOVES_META[slug]} />
+                </a>
               </li>
             ))
           }
@@ -63,7 +70,9 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             FOOT_MOVES.map((slug) => (
               <li>
-                <a href={`/feet/${slug}`}>{FOOT_MOVES_META[slug].name}</a>
+                <a href={`/feet/${slug}`}>
+                  <Name data={FOOT_MOVES_META[slug]} />
+                </a>
               </li>
             ))
           }

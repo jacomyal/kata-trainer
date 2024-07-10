@@ -8,7 +8,8 @@ export type FootMove = (typeof FOOT_MOVES)[number];
 
 export type RawFootMoveMeta = {
   name: string;
-  japaneseName: string;
+  romaji: string;
+  kanji: string;
   description: ReactNode;
   defaultStrikeHeight?: Height;
 };
@@ -16,12 +17,14 @@ export type RawFootMoveMeta = {
 export const RAW_FOOT_MOVES_META: Record<FootMove, RawFootMoveMeta> = {
   "mae-geri": {
     name: "Front Kick",
-    japaneseName: "前蹴り",
+    romaji: "Mae Geri",
+    kanji: "前蹴り",
     description: <>Front kick with the ball of the foot</>,
   },
   "yoko-geri": {
     name: "Side Kick",
-    japaneseName: "横蹴り",
+    romaji: "Yoko Geri",
+    kanji: "横蹴り",
     description: <>Side kick with the edge of the foot</>,
   },
 };

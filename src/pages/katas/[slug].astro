@@ -1,6 +1,7 @@
 ---
 import { chain } from "lodash-es";
 
+import Name from "../../components/Name";
 import Wrap from "../../components/Wrap";
 import KataDisplay from "../../components/KataDisplay";
 import Layout from "../../layouts/Layout.astro";
@@ -38,13 +39,14 @@ const footMoves = chain(kata.footMoves)
   }));
 ---
 
-<Layout title={`Kata ${kata.name}`}>
+<Layout title={`Kata ${kata.romaji}`}>
   <main class="container">
-    <KataDisplay kata={kata} client:load />
+    <div class="my-4">
+      <KataDisplay kata={kata} client:load />
+    </div>
 
     <section class="row">
-      <h1>{kata.name}</h1>
-      <p class="fs-4">{kata.japaneseName}</p>
+      <h1><Name data={kata} /></h1>
 
       <p><Wrap content={kata.description} /></p>
     </section>
@@ -57,7 +59,10 @@ const footMoves = chain(kata.footMoves)
           {
             stances.map(({ stance, count }) => (
               <li>
-                <a href={`/stances/${stance.slug}`}>{stance.englishName}</a> <span class="text-muted">({count})</span>
+                <a href={`/stances/${stance.slug}`}>
+                  <Name data={stance} />
+                </a>{" "}
+                <span class="text-muted">({count})</span>
               </li>
             ))
           }
@@ -71,7 +76,10 @@ const footMoves = chain(kata.footMoves)
           {
             handMoves.map(({ handMove, count }) => (
               <li>
-                <a href={`/hands/${handMove.slug}`}>{handMove.englishName}</a> <span class="text-muted">({count})</span>
+                <a href={`/hands/${handMove.slug}`}>
+                  <Name data={handMove} />
+                </a>{" "}
+                <span class="text-muted">({count})</span>
               </li>
             ))
           }
@@ -79,13 +87,16 @@ const footMoves = chain(kata.footMoves)
       </div>
 
       <div class="col-4">
-        <h2>Foot move</h2>
+        <h2>Foot moves</h2>
 
         <ul class="unstyled">
           {
             footMoves.map(({ footMove, count }) => (
               <li>
-                <a href={`/feet/${footMove.slug}`}>{footMove.name}</a> <span class="text-muted">({count})</span>
+                <a href={`/feet/${footMove.slug}`}>
+                  <Name data={footMove} />
+                </a>{" "}
+                <span class="text-muted">({count})</span>
               </li>
             ))
           }

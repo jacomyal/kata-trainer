@@ -2,8 +2,9 @@ import type { RawKata } from "./types.ts";
 
 export const HEIAN_NIDAN: RawKata = {
   slug: "heian-nidan",
-  name: "Heian Nidan",
-  japaneseName: "平安二段",
+  name: "Peaceful Mind – level two",
+  kanji: "平安二段",
+  romaji: "Heian Nidan",
   description: <>TODO</>,
   initialStance: {
     stance: "yohi-dachi",

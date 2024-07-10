@@ -3,25 +3,29 @@ export const HEIGHTS = ["jodan", "chudan", "gedan"] as const;
 export type Height = (typeof HEIGHTS)[number];
 
 export type RawHeightMeta = {
-  englishName: string;
-  japaneseName: string;
+  name: string;
+  kanji: string;
+  romaji: string;
   description: string;
 };
 
 export const RAW_HEIGHTS_META: Record<Height, RawHeightMeta> = {
   jodan: {
-    englishName: "Upper Level",
-    japaneseName: "上段",
+    name: "Upper Level",
+    kanji: "上段",
+    romaji: "Jodan",
     description: "Strikes aimed at the head and neck",
   },
   chudan: {
-    englishName: "Middle Level",
-    japaneseName: "中段",
+    name: "Middle Level",
+    kanji: "中段",
+    romaji: "Chudan",
     description: "Strikes aimed at the torso",
   },
   gedan: {
-    englishName: "Lower Level",
-    japaneseName: "下段",
+    name: "Lower Level",
+    kanji: "下段",
+    romaji: "Gedan",
     description: "Strikes aimed at the lower body, primarily the legs",
   },
 };

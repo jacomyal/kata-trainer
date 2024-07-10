@@ -24,8 +24,9 @@ export const HAND_MOVES = [
 export type HandMove = (typeof HAND_MOVES)[number];
 
 export type RawHandMoveMeta = {
-  englishName: string;
-  japaneseName: string;
+  name: string;
+  kanji: string;
+  romaji: string;
   description: ReactNode;
   isClosedFist?: boolean;
   defaultStrikeHeight?: Height;
@@ -34,51 +35,59 @@ export type RawHandMoveMeta = {
 
 export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
   hikite: {
-    englishName: "Pulling Hand",
-    japaneseName: "引き手",
+    name: "Pulling Hand",
+    kanji: "引き手",
+    romaji: "Hikite",
     description: <>The pulling hand used to retract the arm quickly to the hip</>,
     isClosedFist: true,
   },
   tsuki: {
-    englishName: "Punch",
-    japaneseName: "突き",
+    name: "Punch",
+    kanji: "突き",
+    romaji: "Tsuki",
     description: <>Forward stepping punch</>,
     isClosedFist: true,
   },
   "ura-zuki": {
-    englishName: "Close Punch",
-    japaneseName: "裏突き",
+    name: "Close Punch",
+    kanji: "裏突き",
+    romaji: "Ura Zuki",
     description: <>Short distance punch with the fist</>,
     isClosedFist: true,
   },
   nukite: {
-    englishName: "Spear Hand Strike",
-    japaneseName: "貫手",
+    name: "Spear Hand Strike",
+    kanji: "貫手",
+    romaji: "Nukite",
     description: <>Thrust with the fingertips</>,
     isClosedFist: false,
     defaultOtherHandPosition: "osae-uke",
   },
   "uraken-uchi": {
-    englishName: "Back Fist Strike",
-    japaneseName: "裏拳打ち",
+    name: "Back Fist Strike",
+    kanji: "裏拳打ち",
+    romaji: "Uraken Uchi",
     description: <>Strike with the back of the fist</>,
     isClosedFist: true,
   },
   "tettsui-uchi": {
-    englishName: "Hammer Fist Strike",
-    japaneseName: "鉄槌打ち",
+    name: "Hammer Fist Strike",
+    kanji: "鉄槌打ち",
+    romaji: "Tettsui Uchi",
     description: <>Strike with the bottom of the fist</>,
     isClosedFist: true,
   },
   "age-uke": {
-    englishName: "Rising Block",
-    japaneseName: "上げ受け",
+    name: "Rising Block",
+    kanji: "上げ受け",
+    romaji: "Age Uke",
     description: <>Rising block aimed at the upper level</>,
     isClosedFist: true,
   },
   "ude-uke": {
-    englishName: "Forearm Block",
-    japaneseName: "腕受け",
+    name: "Forearm Block",
+    kanji: "腕受け",
+    romaji: "Ude Uke",
     description: (
       <>General term for blocks using the forearm, can refer to inside or outside blocks depending on the context</>
     ),
@@ -86,52 +95,60 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "tate-uke": {
-    englishName: "Vertical Block",
-    japaneseName: "縦受け",
+    name: "Vertical Block",
+    kanji: "縦受け",
+    romaji: "Tate Uke",
     description: <>Vertical block using the forearm</>,
     isClosedFist: true,
   },
   "uchi-uke": {
-    englishName: "Inside Block",
-    japaneseName: "内受け",
+    name: "Inside Block",
+    kanji: "内受け",
+    romaji: "Uchi Uke",
     description: <>Block from the inside to the outside</>,
     isClosedFist: true,
   },
   "soto-uke": {
-    englishName: "Outside Block",
-    japaneseName: "外受け",
+    name: "Outside Block",
+    kanji: "外受け",
+    romaji: "Soto Uke",
     description: <>Block from the outside to the inside</>,
     isClosedFist: true,
   },
   "osae-uke": {
-    englishName: "Pressing Block",
-    japaneseName: "押さえ受け",
+    name: "Pressing Block",
+    kanji: "押さえ受け",
+    romaji: "Osae Uke",
     description: <>Pressing block to control the opponent's attack</>,
     isClosedFist: false,
   },
   "shuto-uke": {
-    englishName: "Knife Hand Block",
-    japaneseName: "手刀受け",
+    name: "Knife Hand Block",
+    kanji: "手刀受け",
+    romaji: "Shuto Uke",
     description: <>Block using the edge of the hand</>,
     isClosedFist: false,
     defaultOtherHandPosition: "osae-uke",
   },
   "morote-uke": {
-    englishName: "Augmented Block",
-    japaneseName: "諸手受け",
+    name: "Augmented Block",
+    kanji: "諸手受け",
+    romaji: "Morote Uke",
     description: <>Block with one hand supported by the other</>,
     isClosedFist: true,
   },
   "gedan-barai": {
-    englishName: "Downward Block",
-    japaneseName: "下段払い",
+    name: "Downward Block",
+    kanji: "下段払い",
+    romaji: "Gedan Barai",
     description: <>Sweeping block aimed at the lower level</>,
     defaultStrikeHeight: "gedan",
     isClosedFist: true,
   },
   "ude-soete": {
-    englishName: "Reinforced Forearm Block",
-    japaneseName: "腕添え",
+    name: "Reinforced Forearm Block",
+    kanji: "腕添え",
+    romaji: "Ude Soete",
     description: <>Reinforced block using the forearm</>,
     isClosedFist: true,
   },

@@ -45,7 +45,8 @@ export type Step = {
 export type RawKata = {
   slug: string;
   name: string;
-  japaneseName: string;
+  kanji: string;
+  romaji: string;
   description: ReactNode;
   initialStance: StepStance;
   steps: Step[];
