@@ -1,7 +1,6 @@
 ---
 import Name from "../../components/Name";
 import Layout from "../../layouts/Layout.astro";
-import { BodyStateDisplay } from "../../components/KataDisplay";
 import Wrap from "../../components/Wrap";
 import { STANCES, STANCES_META, type StanceMeta } from "../../core/data";
 
@@ -23,7 +22,5 @@ const stance = STANCES_META[slug] as StanceMeta;
 
       <p><Wrap content={stance.description} /></p>
     </section>
-
-    <FeetStateDisplay state={stance.rightFootLeadingState} client:load />
   </main>
 </Layout>

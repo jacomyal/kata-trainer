@@ -1,6 +1,6 @@
 import {
-  AngledPosition,
-  BodyState,
+  type AngledPosition,
+  type BodyState,
   DIRECTION_ANGLES,
   type Direction,
   type FeetState,
@@ -68,13 +68,13 @@ export function mirrorBodyState({ pelvis, feet, hands }: BodyState): BodyState {
   };
 }
 
-export function transformBodyState(
+export function moveBodyState(
   bodyState: BodyState,
   anchor: { side: Side; position: Position; direction: Direction },
 ): BodyState {
   const translationVector: Position = diff(bodyState.feet[anchor.side], anchor.position);
 
-  const angle = DIRECTION_ANGLES[anchor.direction] - Math.PI / 2;
+  const angle = DIRECTION_ANGLES[anchor.direction];
   const otherSide = getOtherSide(anchor.side);
 
   // Translate:

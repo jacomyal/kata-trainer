@@ -1,7 +1,7 @@
-import { keyBy, mapValues } from "lodash-es";
+import { cloneDeep, keyBy, mapValues } from "lodash-es";
 
 import { mirrorBodyState } from "../utils/positions.ts";
-import { moveFoot } from "../utils/transitions.ts";
+import { moveFoot, moveHands } from "../utils/transitions.ts";
 import { RAW_KATAS } from "./katas";
 import type { FootMove, RawFootMoveMeta } from "./moves/foot.tsx";
 import { RAW_FOOT_MOVES_META } from "./moves/foot.tsx";
@@ -10,9 +10,9 @@ import { RAW_STANCES_META, type RawStanceMeta, type Stance } from "./moves/stanc
 import type { BodyState, FootMoveMeta, HandMoveMeta, Kata, StanceMeta } from "./types.ts";
 import { DEFAULT_BODY_STATE } from "./types.ts";
 
-export { FOOT_MOVES } from "./moves/foot.tsx";
-export { HAND_MOVES } from "./moves/hand.tsx";
-export { STANCES } from "./moves/stance.tsx";
+export { type FootMove, FOOT_MOVES } from "./moves/foot.tsx";
+export { type HandMove, HAND_MOVES } from "./moves/hand.tsx";
+export { type Stance, STANCES } from "./moves/stance.tsx";
 export { HEIGHTS, RAW_HEIGHTS_META as HEIGHTS_META, type Height, type RawHeightMeta } from "./moves/height.ts";
 export * from "./types.ts";
 export * from "./katas/types.ts";
@@ -30,17 +30,17 @@ export const STANCES_META = mapValues(RAW_STANCES_META, (meta: RawStanceMeta, sl
   ...meta,
   slug,
   katas: {},
-})) as Record<Stance, StanceMeta>;
+})) as unknown as Record<Stance, StanceMeta>;
 export const HAND_MOVES_META = mapValues(RAW_HAND_MOVES_META, (meta: RawHandMoveMeta, slug: HandMove) => ({
   ...meta,
   slug,
   katas: {},
-})) as Record<HandMove, HandMoveMeta>;
+})) as unknown as Record<HandMove, HandMoveMeta>;
 export const FOOT_MOVES_META = mapValues(RAW_FOOT_MOVES_META, (meta: RawFootMoveMeta, slug: FootMove) => ({
   ...meta,
   slug,
   katas: {},
-})) as Record<FootMove, FootMoveMeta>;
+})) as unknown as Record<FootMove, FootMoveMeta>;
 
 /**
  * This function searches all katas, and increments all "enriched" indices:
@@ -62,7 +62,10 @@ function _indexData(): void {
       const { move, stance: stepStance, leftHand, rightHand, leftFoot, rightFoot } = step;
       const stance = stepStance || lastStance;
 
-      state = move ? moveFoot(state, move, stance).to : state;
+      state = cloneDeep(state);
+      if (move) state = moveFoot(state, move, stance);
+      state = moveHands(state, step, stance);
+
       kata.states.push(state);
       lastStance = stance;
 

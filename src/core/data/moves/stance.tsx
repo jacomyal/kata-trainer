@@ -18,6 +18,7 @@ export type RawStanceMeta = {
   romaji: string;
   description: ReactNode;
   rightFootLeadingState: BodyState["feet"];
+  rightFootBodyAngle: number;
 };
 
 export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
@@ -32,6 +33,7 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         listening to instructions (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
+    rightFootBodyAngle: 0,
     rightFootLeadingState: {
       left: {
         x: -20,
@@ -55,6 +57,7 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         together (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
+    rightFootBodyAngle: 0,
     rightFootLeadingState: {
       left: {
         x: -6,
@@ -82,6 +85,7 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
+    rightFootBodyAngle: 0,
     rightFootLeadingState: {
       left: {
         x: -20,
@@ -107,6 +111,7 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         Sanchin-dachi (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
+    rightFootBodyAngle: 0,
     rightFootLeadingState: {
       left: {
         x: -20,
@@ -131,6 +136,7 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
+    rightFootBodyAngle: Math.PI / 3,
     rightFootLeadingState: {
       left: {
         x: 0,

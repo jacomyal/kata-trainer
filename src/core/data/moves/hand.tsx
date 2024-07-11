@@ -28,12 +28,13 @@ export type RawHandMoveMeta = {
   kanji: string;
   romaji: string;
   description: ReactNode;
+  bodyAngle?: number;
   isClosedFist?: boolean;
   defaultStrikeHeight?: Height;
   defaultOtherHandPosition?: HandMove;
 };
 
-export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
+export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
   hikite: {
     name: "Pulling Hand",
     kanji: "引き手",
@@ -83,6 +84,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     romaji: "Age Uke",
     description: <>Rising block aimed at the upper level</>,
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "ude-uke": {
     name: "Forearm Block",
@@ -93,6 +95,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     ),
     defaultStrikeHeight: "chudan",
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "tate-uke": {
     name: "Vertical Block",
@@ -100,6 +103,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     romaji: "Tate Uke",
     description: <>Vertical block using the forearm</>,
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "uchi-uke": {
     name: "Inside Block",
@@ -107,6 +111,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     romaji: "Uchi Uke",
     description: <>Block from the inside to the outside</>,
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "soto-uke": {
     name: "Outside Block",
@@ -114,6 +119,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     romaji: "Soto Uke",
     description: <>Block from the outside to the inside</>,
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "osae-uke": {
     name: "Pressing Block",
@@ -121,6 +127,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     romaji: "Osae Uke",
     description: <>Pressing block to control the opponent's attack</>,
     isClosedFist: false,
+    bodyAngle: Math.PI / 4,
   },
   "shuto-uke": {
     name: "Knife Hand Block",
@@ -129,6 +136,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     description: <>Block using the edge of the hand</>,
     isClosedFist: false,
     defaultOtherHandPosition: "osae-uke",
+    bodyAngle: Math.PI / 3,
   },
   "morote-uke": {
     name: "Augmented Block",
@@ -144,6 +152,7 @@ export const RAW_HAND_MOVES_META: Record<string, RawHandMoveMeta> = {
     description: <>Sweeping block aimed at the lower level</>,
     defaultStrikeHeight: "gedan",
     isClosedFist: true,
+    bodyAngle: Math.PI / 4,
   },
   "ude-soete": {
     name: "Reinforced Forearm Block",

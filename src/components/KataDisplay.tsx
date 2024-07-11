@@ -49,8 +49,6 @@ const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
     [kata],
   );
 
-  console.log(JSON.stringify(kata, null, "  "));
-
   return (
     <section className="row">
       <BodyStateDisplay state={feetState} />

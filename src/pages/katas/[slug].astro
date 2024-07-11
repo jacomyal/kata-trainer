@@ -5,7 +5,17 @@ import Name from "../../components/Name";
 import Wrap from "../../components/Wrap";
 import KataDisplay from "../../components/KataDisplay";
 import Layout from "../../layouts/Layout.astro";
-import { KATAS, KATAS_INDEX, type Kata, STANCES_META, FOOT_MOVES_META, HAND_MOVES_META } from "../../core/data";
+import {
+  type FootMove,
+  KATAS,
+  KATAS_INDEX,
+  type Kata,
+  STANCES_META,
+  FOOT_MOVES_META,
+  HAND_MOVES_META,
+  type HandMove,
+  type Stance,
+} from "../../core/data";
 
 export const getStaticPaths = () => {
   return KATAS.map((kata) => ({
@@ -20,21 +30,21 @@ const stances = chain(kata.stances)
   .toPairs()
   .sortBy(([_, count]) => -count)
   .map(([stance, count]) => ({
-    stance: STANCES_META[stance],
+    stance: STANCES_META[stance as Stance],
     count,
   }));
 const handMoves = chain(kata.handMoves)
   .toPairs()
   .sortBy(([_, count]) => -count)
   .map(([handMove, count]) => ({
-    handMove: HAND_MOVES_META[handMove],
+    handMove: HAND_MOVES_META[handMove as HandMove],
     count,
   }));
 const footMoves = chain(kata.footMoves)
   .toPairs()
   .sortBy(([_, count]) => -count)
   .map(([footMove, count]) => ({
-    footMove: FOOT_MOVES_META[footMove],
+    footMove: FOOT_MOVES_META[footMove as FootMove],
     count,
   }));
 ---

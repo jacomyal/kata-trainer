@@ -6,14 +6,14 @@ import type { RawStanceMeta, Stance } from "./moves/stance.tsx";
 export type Direction = "north" | "south" | "east" | "west" | "northeast" | "northwest" | "southeast" | "southwest";
 
 export const DIRECTION_ANGLES: Record<Direction, number> = {
-  north: Math.PI / 2,
-  south: (Math.PI / 2) * 3,
-  east: 0,
-  west: Math.PI,
-  northeast: Math.PI / 4,
-  northwest: (Math.PI / 4) * 3,
-  southeast: (Math.PI / 4) * 7,
-  southwest: (Math.PI / 4) * 5,
+  north: 0,
+  south: Math.PI,
+  east: -Math.PI / 2,
+  west: Math.PI / 2,
+  northeast: -Math.PI / 4,
+  northwest: Math.PI / 4,
+  southeast: -(Math.PI / 4) * 3,
+  southwest: (Math.PI / 4) * 3,
 };
 
 export type Side = "left" | "right";
