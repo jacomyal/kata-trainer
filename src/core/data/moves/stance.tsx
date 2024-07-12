@@ -8,6 +8,7 @@ export const STANCES = [
   "zenkutsu-dachi",
   "han-zenkutsu-dachi",
   "kokutsu-dachi",
+  "kiba-dachi",
 ] as const;
 
 export type Stance = (typeof STANCES)[number];
@@ -147,6 +148,27 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
         x: 0,
         y: 50,
         angle: 0,
+      },
+    },
+  },
+  "kiba-dachi": {
+    name: "Horse Stance",
+    kanji: "騎馬立ち",
+    romaji: "Kiba Dachi",
+    description: (
+      <>Wide stance with knees bent and weight evenly distributed, resembling the stance of riding a horse</>
+    ),
+    rightFootBodyAngle: Math.PI / 2,
+    rightFootLeadingState: {
+      left: {
+        x: 0,
+        y: -30,
+        angle: Math.PI / 2,
+      },
+      right: {
+        x: 0,
+        y: 30,
+        angle: Math.PI / 2,
       },
     },
   },

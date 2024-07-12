@@ -20,6 +20,10 @@ export const HAND_MOVES = [
   "morote-uke",
   "gedan-barai",
   "ude-soete",
+  "empi-uke",
+  "tate-shuto-uke",
+  "tate-zuki",
+  "ushiro-empi-uchi",
 ] as const;
 
 export type HandMove = (typeof HAND_MOVES)[number];
@@ -104,7 +108,7 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     romaji: "Uraken Uchi",
     description: <>Strike with the back of the fist</>,
     rightHandPosition: {
-      x: 0,
+      x: 10,
       y: 40,
       angle: 0,
     },
@@ -134,7 +138,7 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
       y: 30,
       angle: Math.PI / 2 - Math.PI / 10,
     },
-    palmDirection: "sky",
+    palmDirection: "ground",
     isClosedFist: true,
     bodyAngle: Math.PI / 4,
   },
@@ -265,6 +269,57 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
       angle: 0,
     },
     palmDirection: "side",
+    isClosedFist: true,
+  },
+  "empi-uke": {
+    name: "Elbow Block",
+    kanji: "猿臂受け",
+    romaji: "Empi-uke",
+    description: <>Block using the elbow, usually aimed at blocking an attack to the head or upper body</>,
+    rightHandPosition: {
+      x: 20,
+      y: 0,
+      angle: Math.PI / 2,
+    },
+    palmDirection: "back",
+    isClosedFist: true,
+  },
+  "tate-shuto-uke": {
+    name: "Vertical Knife Hand Block",
+    kanji: "縦手刀受け",
+    romaji: "Tate-shuto-uke",
+    description: <>Vertical block using the edge of the hand</>,
+    rightHandPosition: {
+      x: 20,
+      y: 50,
+      angle: 0,
+    },
+    palmDirection: "side",
+    isClosedFist: false,
+  },
+  "tate-zuki": {
+    name: "Vertical Punch",
+    kanji: "縦突き",
+    romaji: "Tate-zuki",
+    description: <>Vertical punch with the fist turned sideways</>,
+    rightHandPosition: {
+      x: 10,
+      y: 50,
+      angle: 0,
+    },
+    palmDirection: "side",
+    isClosedFist: true,
+  },
+  "ushiro-empi-uchi": {
+    name: "Rear Elbow Strike",
+    kanji: "後ろ猿臂打ち",
+    romaji: "Ushiro-empi-uchi",
+    description: <>Backward strike using the elbow, usually aimed at an opponent behind</>,
+    rightHandPosition: {
+      x: -20,
+      y: 0,
+      angle: 180,
+    },
     isClosedFist: true,
   },
 };
