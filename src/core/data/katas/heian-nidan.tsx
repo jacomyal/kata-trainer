@@ -2,10 +2,12 @@ import type { RawKata } from "./types.ts";
 
 export const HEIAN_NIDAN: RawKata = {
   slug: "heian-nidan",
-  name: "Peaceful Mind, level two",
+  name: "Esprit Paisible, niveau deux",
   kanji: "平安二段",
   romaji: "Heian Nidan",
-  description: <>TODO</>,
+  description: (
+    <>Deuxième kata de la série Heian, visant à développer la coordination et la fluidité des mouvements de base</>
+  ),
   initialStance: {
     stance: "yohi-dachi",
     facing: "north",

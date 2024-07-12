@@ -2,10 +2,10 @@ import type { RawKata } from "./types.ts";
 
 export const HEIAN_SHODAN: RawKata = {
   slug: "heian-shodan",
-  name: "Peaceful Mind, level one",
+  name: "Esprit Paisible, niveau un",
   kanji: "平安初段",
   romaji: "Heian Shodan",
-  description: <>TODO</>,
+  description: <>Premier kata de la série Heian, introduisant les mouvements de base et les positions fondamentales</>,
   initialStance: {
     stance: "yohi-dachi",
     facing: "north",

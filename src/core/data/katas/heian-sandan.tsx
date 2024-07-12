@@ -2,10 +2,12 @@ import type { RawKata } from "./types.ts";
 
 export const HEIAN_SANDAN: RawKata = {
   slug: "heian-sandan",
-  name: "Peaceful Mind, level three",
-  kanji: "平安二段",
+  name: "Esprit Paisible, niveau trois",
+  kanji: "平安三段",
   romaji: "Heian Sandan",
-  description: <>TODO</>,
+  description: (
+    <>Troisième kata de la série Heian, mettant l'accent sur les blocages combinés et les mouvements de hanche</>
+  ),
   initialStance: {
     stance: "yohi-dachi",
     facing: "north",

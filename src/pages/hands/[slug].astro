@@ -14,7 +14,7 @@ const { slug } = Astro.params;
 const handMove = HAND_MOVES_META[slug] as HandMoveMeta;
 ---
 
-<Layout title={`Stance ${handMove.name}`}>
+<Layout title={`Mouvement de pied ${handMove.name}`}>
   <main class="container">
     <section class="row">
       <h1><Name data={handMove} /></h1>

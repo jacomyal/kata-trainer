@@ -14,7 +14,7 @@ const { slug } = Astro.params;
 const footMove = FOOT_MOVES_META[slug] as FootMoveMeta;
 ---
 
-<Layout title={`Stance ${footMove.name}`}>
+<Layout title={`Mouvement de main ${footMove.name}`}>
   <main class="container">
     <section class="row">
       <h1><Name data={footMove} /></h1>

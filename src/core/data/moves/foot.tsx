@@ -1,9 +1,6 @@
 import type { ReactNode } from "react";
 
-
-
 import type { Height } from "./height.ts";
-
 
 export const FOOT_MOVES = ["mae-geri", "yoko-geri", "fumi-komi"] as const;
 
@@ -19,21 +16,23 @@ export type RawFootMoveMeta = {
 
 export const RAW_FOOT_MOVES_META: Record<FootMove, RawFootMoveMeta> = {
   "mae-geri": {
-    name: "Front Kick",
+    name: "Coup de pied frontal",
     romaji: "Mae Geri",
     kanji: "前蹴り",
-    description: <>Front kick with the ball of the foot</>,
+    description: <>Coup de pied frontal avec la plante du pied</>,
   },
   "yoko-geri": {
-    name: "Side Kick",
+    name: "Coup de pied latéral",
     romaji: "Yoko Geri",
     kanji: "横蹴り",
-    description: <>Side kick with the edge of the foot</>,
+    description: <>Coup de pied latéral avec le tranchant du pied</>,
   },
   "fumi-komi": {
-    name: "Stomp Kick",
+    name: "Coup de pied écrasant",
     romaji: "Fumi Komi",
     kanji: "踏み込み",
-    description: <>Stomping kick with the heel, usually aimed at the opponent's lower body or legs</>,
+    description: (
+      <>Coup de pied écrasant avec le talon, généralement dirigé vers le bas du corps ou les jambes de l'adversaire</>
+    ),
   },
 };

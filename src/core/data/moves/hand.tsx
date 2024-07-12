@@ -50,10 +50,10 @@ export const DEFAULT_PALM_DIRECTION: Palm = "ground";
 
 export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
   hikite: {
-    name: "Pulling Hand",
+    name: "Main Tirante",
     kanji: "引き手",
     romaji: "Hikite",
-    description: <>The pulling hand used to retract the arm quickly to the hip</>,
+    description: <>La main tirante utilisée pour rétracter le bras rapidement vers la hanche</>,
     rightHandPosition: {
       x: 20,
       y: -5,
@@ -63,10 +63,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   tsuki: {
-    name: "Punch",
+    name: "Coup de Poing",
     kanji: "突き",
     romaji: "Tsuki",
-    description: <>Forward stepping punch</>,
+    description: <>Coup de poing en avançant</>,
     rightHandPosition: {
       x: 10,
       y: 50,
@@ -76,10 +76,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "ura-zuki": {
-    name: "Close Punch",
+    name: "Coup de Poing Court",
     kanji: "裏突き",
     romaji: "Ura Zuki",
-    description: <>Short distance punch with the fist</>,
+    description: <>Coup de poing à courte distance avec le poing</>,
     rightHandPosition: {
       x: 10,
       y: 40,
@@ -89,10 +89,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   nukite: {
-    name: "Spear Hand Strike",
+    name: "Coup de Main en Lance",
     kanji: "貫手",
     romaji: "Nukite",
-    description: <>Thrust with the fingertips</>,
+    description: <>Poussée avec le bout des doigts</>,
     rightHandPosition: {
       x: 10,
       y: 50,
@@ -103,10 +103,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     defaultOtherHandMove: "osae-uke",
   },
   "uraken-uchi": {
-    name: "Back Fist Strike",
+    name: "Coup de Poing Inversé",
     kanji: "裏拳打ち",
     romaji: "Uraken Uchi",
-    description: <>Strike with the back of the fist</>,
+    description: <>Coup de poing avec le dos de la main</>,
     rightHandPosition: {
       x: 10,
       y: 40,
@@ -116,10 +116,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "tettsui-uchi": {
-    name: "Hammer Fist Strike",
+    name: "Coup de Poing Marteau",
     kanji: "鉄槌打ち",
     romaji: "Tettsui Uchi",
-    description: <>Strike with the bottom of the fist</>,
+    description: <>Coup de poing avec le bas du poing</>,
     rightHandPosition: {
       x: 10,
       y: 40,
@@ -129,10 +129,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "age-uke": {
-    name: "Rising Block",
+    name: "Blocage Ascendant",
     kanji: "上げ受け",
     romaji: "Age Uke",
-    description: <>Rising block aimed at the upper level</>,
+    description: <>Blocage ascendant visant le niveau supérieur</>,
     rightHandPosition: {
       x: -10,
       y: 30,
@@ -143,11 +143,14 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "ude-uke": {
-    name: "Forearm Block",
+    name: "Blocage de l'Avant-bras",
     kanji: "腕受け",
     romaji: "Ude Uke",
     description: (
-      <>General term for blocks using the forearm, can refer to inside or outside blocks depending on the context</>
+      <>
+        Terme général pour les blocages utilisant l'avant-bras, peut désigner des blocages internes ou externes selon le
+        contexte
+      </>
     ),
     rightHandPosition: {
       x: -15,
@@ -160,10 +163,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "tate-uke": {
-    name: "Vertical Block",
+    name: "Blocage Vertical",
     kanji: "縦受け",
     romaji: "Tate Uke",
-    description: <>Vertical block using the forearm</>,
+    description: <>Blocage vertical utilisant l'avant-bras</>,
     rightHandPosition: {
       x: 10,
       y: 40,
@@ -174,10 +177,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "uchi-uke": {
-    name: "Inside Block",
+    name: "Blocage Intérieur",
     kanji: "内受け",
     romaji: "Uchi Uke",
-    description: <>Block from the inside to the outside</>,
+    description: <>Blocage de l'intérieur vers l'extérieur</>,
     rightHandPosition: {
       x: 20,
       y: 30,
@@ -188,10 +191,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "soto-uke": {
-    name: "Outside Block",
+    name: "Blocage Extérieur",
     kanji: "外受け",
     romaji: "Soto Uke",
-    description: <>Block from the outside to the inside</>,
+    description: <>Blocage de l'extérieur vers l'intérieur</>,
     rightHandPosition: {
       x: 20,
       y: 30,
@@ -202,10 +205,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "osae-uke": {
-    name: "Pressing Block",
+    name: "Blocage Pressant",
     kanji: "押さえ受け",
     romaji: "Osae Uke",
-    description: <>Pressing block to control the opponent's attack</>,
+    description: <>Blocage pressant pour contrôler l'attaque de l'adversaire</>,
     rightHandPosition: {
       x: 0,
       y: 20,
@@ -216,10 +219,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "shuto-uke": {
-    name: "Knife Hand Block",
+    name: "Blocage avec le Tranchant de la Main",
     kanji: "手刀受け",
     romaji: "Shuto Uke",
-    description: <>Block using the edge of the hand</>,
+    description: <>Blocage utilisant le tranchant de la main</>,
     rightHandPosition: {
       x: 5,
       y: 40,
@@ -231,10 +234,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 3,
   },
   "morote-uke": {
-    name: "Augmented Block",
+    name: "Blocage Renforcé",
     kanji: "諸手受け",
     romaji: "Morote Uke",
-    description: <>Block with one hand supported by the other</>,
+    description: <>Blocage avec une main soutenue par l'autre</>,
     rightHandPosition: {
       x: 0,
       y: 40,
@@ -244,10 +247,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "gedan-barai": {
-    name: "Downward Block",
+    name: "Blocage Bas",
     kanji: "下段払い",
     romaji: "Gedan Barai",
-    description: <>Sweeping block aimed at the lower level</>,
+    description: <>Blocage balayé visant le niveau inférieur</>,
     rightHandPosition: {
       x: 15,
       y: 40,
@@ -259,10 +262,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     bodyAngle: Math.PI / 4,
   },
   "ude-soete": {
-    name: "Reinforced Forearm Block",
+    name: "Blocage Renforcé de l'Avant-bras",
     kanji: "腕添え",
     romaji: "Ude Soete",
-    description: <>Reinforced block using the forearm</>,
+    description: <>Blocage renforcé utilisant l'avant-bras</>,
     rightHandPosition: {
       x: 20,
       y: 20,
@@ -272,10 +275,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "empi-uke": {
-    name: "Elbow Block",
+    name: "Blocage avec le Coude",
     kanji: "猿臂受け",
     romaji: "Empi-uke",
-    description: <>Block using the elbow, usually aimed at blocking an attack to the head or upper body</>,
+    description: <>Blocage utilisant le coude, généralement pour bloquer une attaque à la tête ou au haut du corps</>,
     rightHandPosition: {
       x: 20,
       y: 0,
@@ -285,10 +288,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "tate-shuto-uke": {
-    name: "Vertical Knife Hand Block",
+    name: "Blocage Vertical avec le Tranchant de la Main",
     kanji: "縦手刀受け",
     romaji: "Tate-shuto-uke",
-    description: <>Vertical block using the edge of the hand</>,
+    description: <>Blocage vertical utilisant le tranchant de la main</>,
     rightHandPosition: {
       x: 20,
       y: 50,
@@ -298,10 +301,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: false,
   },
   "tate-zuki": {
-    name: "Vertical Punch",
+    name: "Coup de Poing Vertical",
     kanji: "縦突き",
     romaji: "Tate-zuki",
-    description: <>Vertical punch with the fist turned sideways</>,
+    description: <>Coup de poing vertical avec le poing tourné sur le côté</>,
     rightHandPosition: {
       x: 10,
       y: 50,
@@ -311,10 +314,10 @@ export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
     isClosedFist: true,
   },
   "ushiro-empi-uchi": {
-    name: "Rear Elbow Strike",
+    name: "Coup de Coude Arrière",
     kanji: "後ろ猿臂打ち",
     romaji: "Ushiro-empi-uchi",
-    description: <>Backward strike using the elbow, usually aimed at an opponent behind</>,
+    description: <>Coup de coude vers l'arrière, généralement dirigé vers un adversaire derrière</>,
     rightHandPosition: {
       x: -20,
       y: 0,

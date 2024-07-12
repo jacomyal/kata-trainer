@@ -14,7 +14,7 @@ const { slug } = Astro.params;
 const stance = STANCES_META[slug] as StanceMeta;
 ---
 
-<Layout title={`Stance ${stance.name}`}>
+<Layout title={`Position ${stance.name}`}>
   <main class="container">
     <section class="row">
       <h1><Name data={stance} /></h1>
