@@ -50,7 +50,7 @@ function _indexData(): void {
     const slug = kata.slug;
     let lastStance = kata.initialStance;
     const initialBodyState = {
-      ...DEFAULT_BODY_STATE,
+      ...cloneDeep(DEFAULT_BODY_STATE),
       feet: RAW_STANCES_META[lastStance.stance].rightFootLeadingState,
     };
 

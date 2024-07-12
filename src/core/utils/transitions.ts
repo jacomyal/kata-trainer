@@ -1,4 +1,4 @@
-import { mean } from "lodash-es";
+import { cloneDeep, mean } from "lodash-es";
 
 import {
   type BodyState,
@@ -24,7 +24,7 @@ export function moveFoot(bodyState: BodyState, move: StepMove, target: StepStanc
   const fixedFoot = getOtherSide(move.foot);
   const stance = STANCES_META[target.stance];
   const stanceBodyState = {
-    ...DEFAULT_BODY_STATE,
+    ...cloneDeep(DEFAULT_BODY_STATE),
     feet: target.leadingFoot === "right" ? stance.rightFootLeadingState : mirrorPositions(stance.rightFootLeadingState),
   };
   return moveBodyState(stanceBodyState, {
