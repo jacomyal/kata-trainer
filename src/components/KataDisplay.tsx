@@ -3,7 +3,7 @@ import { useCallback, useMemo, useState } from "react";
 
 import type { BodyState, Kata } from "../core/data";
 
-export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, pelvis } }) => {
+export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hands, pelvis } }) => {
   return (
     <div className="body-state border">
       <div className="feet">
@@ -31,6 +31,24 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, pelv
             top: -pelvis.y + "cm",
             left: pelvis.x + "cm",
             transform: `rotate(${-pelvis.angle - Math.PI / 2}rad)`,
+          }}
+        />
+      </div>
+      <div className="hands">
+        <div
+          className="hand hand-left"
+          style={{
+            top: -(hands.left.y + pelvis.y) + "cm",
+            left: hands.left.x + pelvis.x + "cm",
+            transform: `rotate(${-hands.left.angle - Math.PI / 2}rad)`,
+          }}
+        />
+        <div
+          className="hand hand-right"
+          style={{
+            top: -(hands.right.y + pelvis.y) + "cm",
+            left: hands.right.x + pelvis.x + "cm",
+            transform: `rotate(${-hands.right.angle - Math.PI / 2}rad)`,
           }}
         />
       </div>

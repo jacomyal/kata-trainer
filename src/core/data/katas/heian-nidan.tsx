@@ -34,7 +34,7 @@ export const HEIAN_NIDAN: RawKata = {
     {
       leftHand: {
         move: "ude-uke",
-        direction: "east",
+        direction: "north",
       },
       rightHand: {
         move: "ude-soete",
@@ -77,7 +77,7 @@ export const HEIAN_NIDAN: RawKata = {
       },
       rightHand: {
         move: "ude-uke",
-        direction: "west",
+        direction: "north",
       },
     },
     {
@@ -119,7 +119,7 @@ export const HEIAN_NIDAN: RawKata = {
         leadingFoot: "left",
       },
       leftHand: {
-        move: "morote-uke",
+        move: "shuto-uke",
         direction: "north",
       },
       pause: true,

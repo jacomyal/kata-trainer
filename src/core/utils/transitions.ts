@@ -12,7 +12,7 @@ import {
   type StepMove,
   type StepStance,
 } from "../data";
-import { getOtherSide, mirrorAngle, mirrorPositions, moveBodyState } from "./positions.ts";
+import { getHandsState, getOtherSide, mirrorAngle, mirrorPositions, moveBodyState } from "./positions.ts";
 
 export const DEFAULT_DURATION = 700;
 export const DEFAULT_EASING: Easing = "easeOutCubic";
@@ -41,9 +41,7 @@ export function moveHands(
 ): BodyState {
   const handsCount: number = +!!leftHand + +!!rightHand;
 
-  // The strategy here is the following:
-  // - We determine the hips orientation
-  // - We actually move each hand
+  // First, we determine the hips orientation
   const { rightFootBodyAngle } = STANCES_META[stance];
   let pelvisOrientation = leadingFoot === "right" ? rightFootBodyAngle : mirrorAngle(rightFootBodyAngle);
 
@@ -65,11 +63,17 @@ export function moveHands(
     pelvisOrientation = mean([pelvisOrientation, bodyAngle]);
   }
 
+  const pelvis = {
+    ...bodyState.pelvis,
+    angle: DIRECTION_ANGLES[facing] + pelvisOrientation,
+  };
+
+  // Now, we can determine the hands positions:
+  const hands = getHandsState(pelvis, { leftHand, rightHand });
+
   return {
     ...bodyState,
-    pelvis: {
-      ...bodyState.pelvis,
-      angle: DIRECTION_ANGLES[facing] + pelvisOrientation,
-    },
+    pelvis,
+    hands,
   };
 }

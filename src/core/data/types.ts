@@ -33,7 +33,7 @@ export type BodyState = {
   // Pelvis and feet are positioned relatively to the dojo's origin:
   pelvis: AngledPosition;
   feet: Record<Side, AngledPosition>;
-  // Hands are positioned relatively to the pelvis
+  // Hands X and Y are positioned relatively to the pelvis (and angle to the north):
   hands: Record<Side, AngledPosition & { closedFist: boolean }>;
 };
 
@@ -42,15 +42,15 @@ export type HandsState = BodyState["hands"];
 
 export const DEFAULT_HANDS_POSITION: BodyState["hands"] = {
   left: {
-    x: -10,
-    y: 0,
-    angle: Math.PI / 2,
+    x: -20,
+    y: 10,
+    angle: -Math.PI / 10,
     closedFist: true,
   },
   right: {
-    x: 10,
-    y: 0,
-    angle: -Math.PI / 2,
+    x: 20,
+    y: 10,
+    angle: Math.PI / 10,
     closedFist: true,
   },
 };

@@ -4,9 +4,13 @@ import {
   DIRECTION_ANGLES,
   type Direction,
   type FeetState,
+  HAND_MOVES_META,
+  type HandGesture,
   type Position,
   type Side,
+  type Step,
 } from "../data";
+import { DEFAULT_HAND_MOVE } from "../data/moves/hand.tsx";
 
 export function getOtherSide(side: Side): Side {
   return side === "left" ? "right" : "left";
@@ -94,4 +98,83 @@ export function moveBodyState(
   res.pelvis = rotate(res.pelvis, targetPosition, angle);
 
   return res;
+}
+
+export function getHandsState(
+  pelvis: BodyState["pelvis"],
+  { leftHand, rightHand }: Pick<Step, "leftHand" | "rightHand">,
+): BodyState["hands"] {
+  const handsCount: number = +!!leftHand + +!!rightHand;
+
+  switch (handsCount) {
+    case 2: {
+      const leftHandMoveMeta = HAND_MOVES_META[leftHand!.move];
+      const rightHandMoveMeta = HAND_MOVES_META[rightHand!.move];
+
+      return {
+        left: {
+          ...rotate(
+            mirrorPosition(leftHandMoveMeta.rightHandPosition),
+            { x: 0, y: 0 },
+            DIRECTION_ANGLES[leftHand!.direction],
+          ),
+          closedFist: !!leftHandMoveMeta.isClosedFist,
+        },
+        right: {
+          ...rotate(rightHandMoveMeta.rightHandPosition, { x: 0, y: 0 }, DIRECTION_ANGLES[rightHand!.direction]),
+          closedFist: !!rightHandMoveMeta.isClosedFist,
+        },
+      };
+    }
+    case 1: {
+      const mainSide: Side = leftHand ? "left" : "right";
+      const mainHand = (leftHand || rightHand) as HandGesture;
+      const mainHandMove = mainHand.move;
+      const mainHandMoveMeta = HAND_MOVES_META[mainHandMove];
+
+      const otherSide = getOtherSide(mainSide);
+      const otherHandMove = mainHandMoveMeta.defaultOtherHandMove || DEFAULT_HAND_MOVE;
+      const otherHandMoveMeta = HAND_MOVES_META[otherHandMove];
+
+      const mainHandPosition = rotate(
+        mainSide === "right" ? mainHandMoveMeta.rightHandPosition : mirrorPosition(mainHandMoveMeta.rightHandPosition),
+        { x: 0, y: 0 },
+        DIRECTION_ANGLES[mainHand.direction],
+      );
+      const otherHandPosition = rotate(
+        otherSide === "right"
+          ? otherHandMoveMeta.rightHandPosition
+          : mirrorPosition(otherHandMoveMeta.rightHandPosition),
+        { x: 0, y: 0 },
+        pelvis.angle,
+      );
+
+      return {
+        [mainSide]: {
+          ...mainHandPosition,
+          closedFist: !!mainHandMoveMeta.isClosedFist,
+        },
+        [otherSide]: {
+          ...otherHandPosition,
+          closedFist: !!otherHandMoveMeta.isClosedFist,
+        },
+      } as BodyState["hands"];
+    }
+    case 0:
+    default: {
+      const leftHandMoveMeta = HAND_MOVES_META[DEFAULT_HAND_MOVE];
+      const rightHandMoveMeta = HAND_MOVES_META[DEFAULT_HAND_MOVE];
+
+      return {
+        left: {
+          ...rotate(mirrorPosition(leftHandMoveMeta.rightHandPosition), { x: 0, y: 0 }, pelvis.angle),
+          closedFist: !!leftHandMoveMeta.isClosedFist,
+        },
+        right: {
+          ...rotate(rightHandMoveMeta.rightHandPosition, { x: 0, y: 0 }, pelvis.angle),
+          closedFist: !!rightHandMoveMeta.isClosedFist,
+        },
+      };
+    }
+  }
 }
