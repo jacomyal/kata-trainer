@@ -124,7 +124,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
     width: 0;
     height: 0;
 
-    transition: $MOVE_TRANSITION;
+    transition: $IMPACT_TRANSITION;
 
     &::after {
       content: "";
