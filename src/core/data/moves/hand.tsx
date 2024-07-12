@@ -24,6 +24,9 @@ export const HAND_MOVES = [
 
 export type HandMove = (typeof HAND_MOVES)[number];
 
+export const PALMS = ["sky", "ground", "side", "front", "back"] as const;
+export type Palm = (typeof PALMS)[number];
+
 export type RawHandMoveMeta = {
   name: string;
   kanji: string;
@@ -32,12 +35,14 @@ export type RawHandMoveMeta = {
   rightHandPosition: AngledPosition;
   bodyAngle?: number;
   isClosedFist?: boolean;
-  palmDirection?: "sky" | "ground" | "side" | "front" | "back";
+  palmDirection?: Palm;
   defaultStrikeHeight?: Height;
   defaultOtherHandMove?: HandMove;
 };
 
 export const DEFAULT_HAND_MOVE: HandMove = "hikite";
+
+export const DEFAULT_PALM_DIRECTION: Palm = "ground";
 
 export const RAW_HAND_MOVES_META: Record<HandMove, RawHandMoveMeta> = {
   hikite: {

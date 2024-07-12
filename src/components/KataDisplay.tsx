@@ -1,11 +1,20 @@
+import cx from "classnames";
 import type { FC } from "react";
 import { useCallback, useMemo, useState } from "react";
 
-import type { BodyState, Kata } from "../core/data";
+import type { BodyState, Kata, Palm } from "../core/data";
 
-export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hands, pelvis } }) => {
+const PALM_CLASSES: Record<Palm, string> = {
+  back: "side",
+  front: "side",
+  ground: "ground",
+  side: "side",
+  sky: "sky",
+};
+
+export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hands, pelvis, head } }) => {
   return (
-    <div className="body-state border">
+    <>
       <div className="feet">
         <div
           className="foot foot-left"
@@ -24,35 +33,58 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
           }}
         />
       </div>
+
       <div>
         <div
-          className="body"
+          className="body-wrapper"
           style={{
             top: -pelvis.y + "cm",
             left: pelvis.x + "cm",
-            transform: `rotate(${-pelvis.angle - Math.PI / 2}rad)`,
           }}
-        />
+        >
+          <div className="hands">
+            <div
+              className={cx(
+                "hand hand-left",
+                hands.left.closedFist ? "closed" : "opened",
+                PALM_CLASSES[hands.left.palm],
+              )}
+              style={{
+                top: -hands.left.y + "cm",
+                left: hands.left.x + "cm",
+                transform: `rotate(${-hands.left.angle - Math.PI / 2}rad)`,
+              }}
+            />
+            <div
+              className={cx(
+                "hand hand-right",
+                hands.right.closedFist ? "closed" : "opened",
+                PALM_CLASSES[hands.right.palm],
+              )}
+              style={{
+                top: -hands.right.y + "cm",
+                left: hands.right.x + "cm",
+                transform: `rotate(${-hands.right.angle - Math.PI / 2}rad)`,
+              }}
+            />
+          </div>
+
+          <div
+            className="body"
+            style={{
+              transform: `rotate(${-pelvis.angle - Math.PI / 2}rad)`,
+            }}
+          />
+
+          <div
+            className="head"
+            style={{
+              transform: `rotate(${-head.angle - Math.PI / 2}rad)`,
+            }}
+          />
+        </div>
       </div>
-      <div className="hands">
-        <div
-          className="hand hand-left"
-          style={{
-            top: -(hands.left.y + pelvis.y) + "cm",
-            left: hands.left.x + pelvis.x + "cm",
-            transform: `rotate(${-hands.left.angle - Math.PI / 2}rad)`,
-          }}
-        />
-        <div
-          className="hand hand-right"
-          style={{
-            top: -(hands.right.y + pelvis.y) + "cm",
-            left: hands.right.x + pelvis.x + "cm",
-            transform: `rotate(${-hands.right.angle - Math.PI / 2}rad)`,
-          }}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
@@ -69,7 +101,9 @@ const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
 
   return (
     <section className="row">
-      <BodyStateDisplay state={feetState} />
+      <div className="dojo">
+        <BodyStateDisplay state={feetState} />
+      </div>
 
       <div className="text-center mt-2">
         <button className="btn btn-outline-primary" onClick={() => setStep(checkStep(step - 1))}>

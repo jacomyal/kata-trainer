@@ -10,7 +10,7 @@ import {
   type Side,
   type Step,
 } from "../data";
-import { DEFAULT_HAND_MOVE } from "../data/moves/hand.tsx";
+import { DEFAULT_HAND_MOVE, DEFAULT_PALM_DIRECTION } from "../data/moves/hand.tsx";
 
 export function getOtherSide(side: Side): Side {
   return side === "left" ? "right" : "left";
@@ -64,8 +64,9 @@ export function mirrorPositions<T extends FeetState>(state: T): T {
   };
 }
 
-export function mirrorBodyState({ pelvis, feet, hands }: BodyState): BodyState {
+export function mirrorBodyState({ head, pelvis, feet, hands }: BodyState): BodyState {
   return {
+    head: { angle: mirrorAngle(head.angle) },
     pelvis: mirrorPosition(pelvis),
     feet: mirrorPositions(feet),
     hands: mirrorPositions(hands),
@@ -83,6 +84,7 @@ export function moveBodyState(
 
   // Translate:
   const res: BodyState = {
+    head: bodyState.head,
     hands: bodyState.hands,
     pelvis: add(bodyState.pelvis, translationVector),
     feet: {
@@ -96,6 +98,7 @@ export function moveBodyState(
   res.feet[otherSide] = rotate(res.feet[otherSide], targetPosition, angle);
   res.feet[anchor.side].angle += angle;
   res.pelvis = rotate(res.pelvis, targetPosition, angle);
+  res.head.angle += angle;
 
   return res;
 }
@@ -119,10 +122,12 @@ export function getHandsState(
             DIRECTION_ANGLES[leftHand!.direction],
           ),
           closedFist: !!leftHandMoveMeta.isClosedFist,
+          palm: leftHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
         right: {
           ...rotate(rightHandMoveMeta.rightHandPosition, { x: 0, y: 0 }, DIRECTION_ANGLES[rightHand!.direction]),
           closedFist: !!rightHandMoveMeta.isClosedFist,
+          palm: rightHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
       };
     }
@@ -153,10 +158,12 @@ export function getHandsState(
         [mainSide]: {
           ...mainHandPosition,
           closedFist: !!mainHandMoveMeta.isClosedFist,
+          palm: mainHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
         [otherSide]: {
           ...otherHandPosition,
           closedFist: !!otherHandMoveMeta.isClosedFist,
+          palm: otherHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
       } as BodyState["hands"];
     }
@@ -169,10 +176,12 @@ export function getHandsState(
         left: {
           ...rotate(mirrorPosition(leftHandMoveMeta.rightHandPosition), { x: 0, y: 0 }, pelvis.angle),
           closedFist: !!leftHandMoveMeta.isClosedFist,
+          palm: leftHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
         right: {
           ...rotate(rightHandMoveMeta.rightHandPosition, { x: 0, y: 0 }, pelvis.angle),
           closedFist: !!rightHandMoveMeta.isClosedFist,
+          palm: rightHandMoveMeta.palmDirection || DEFAULT_PALM_DIRECTION,
         },
       };
     }

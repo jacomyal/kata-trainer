@@ -1,6 +1,6 @@
 import type { RawKata } from "./katas/types.ts";
 import type { FootMove, RawFootMoveMeta } from "./moves/foot.tsx";
-import type { HandMove, RawHandMoveMeta } from "./moves/hand.tsx";
+import type { HandMove, Palm, RawHandMoveMeta } from "./moves/hand.tsx";
 import type { RawStanceMeta, Stance } from "./moves/stance.tsx";
 
 export type Direction = "north" | "south" | "east" | "west" | "northeast" | "northwest" | "southeast" | "southwest";
@@ -30,11 +30,13 @@ export type AngledPosition = Position & {
 };
 
 export type BodyState = {
+  // Head angle is relatively to the north:
+  head: Pick<AngledPosition, "angle">;
   // Pelvis and feet are positioned relatively to the dojo's origin:
   pelvis: AngledPosition;
   feet: Record<Side, AngledPosition>;
   // Hands X and Y are positioned relatively to the pelvis (and angle to the north):
-  hands: Record<Side, AngledPosition & { closedFist: boolean }>;
+  hands: Record<Side, AngledPosition & { closedFist: boolean; palm: Palm }>;
 };
 
 export type FeetState = BodyState["feet"];
@@ -46,12 +48,14 @@ export const DEFAULT_HANDS_POSITION: BodyState["hands"] = {
     y: 10,
     angle: -Math.PI / 10,
     closedFist: true,
+    palm: "ground",
   },
   right: {
     x: 20,
     y: 10,
     angle: Math.PI / 10,
     closedFist: true,
+    palm: "ground",
   },
 };
 
@@ -71,6 +75,7 @@ export const DEFAULT_FEET_POSITION: BodyState["feet"] = {
 export const DEFAULT_BODY_STATE: BodyState = {
   hands: DEFAULT_HANDS_POSITION,
   feet: DEFAULT_FEET_POSITION,
+  head: { angle: 0 },
   pelvis: {
     x: 0,
     y: 0,

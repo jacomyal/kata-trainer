@@ -11,7 +11,7 @@ import type { BodyState, FootMoveMeta, HandMoveMeta, Kata, StanceMeta } from "./
 import { DEFAULT_BODY_STATE } from "./types.ts";
 
 export { type FootMove, FOOT_MOVES } from "./moves/foot.tsx";
-export { type HandMove, HAND_MOVES } from "./moves/hand.tsx";
+export { type HandMove, type Palm, HAND_MOVES } from "./moves/hand.tsx";
 export { type Stance, STANCES } from "./moves/stance.tsx";
 export { HEIGHTS, RAW_HEIGHTS_META as HEIGHTS_META, type Height, type RawHeightMeta } from "./moves/height.ts";
 export * from "./types.ts";

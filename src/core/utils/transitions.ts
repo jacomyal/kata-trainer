@@ -68,12 +68,15 @@ export function moveHands(
     angle: DIRECTION_ANGLES[facing] + pelvisOrientation,
   };
 
-  // Now, we can determine the hands positions:
+  // Now, we can determine the hands and head positions:
   const hands = getHandsState(pelvis, { leftHand, rightHand });
+
+  const head = { angle: DIRECTION_ANGLES[facing] };
 
   return {
     ...bodyState,
     pelvis,
+    head,
     hands,
   };
 }

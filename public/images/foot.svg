@@ -8,7 +8,7 @@
    version="1.1"
    id="svg907"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="step.svg"
+   sodipodi:docname="foot.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,12 +24,12 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.38885733"
-     inkscape:cx="-65.576751"
-     inkscape:cy="-515.61328"
+     inkscape:cx="-65.57675"
+     inkscape:cy="-514.32745"
      inkscape:window-width="2558"
-     inkscape:window-height="1420"
+     inkscape:window-height="1405"
      inkscape:window-x="3840"
-     inkscape:window-y="0"
+     inkscape:window-y="16"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1" />
   <defs
@@ -40,11 +40,11 @@
      id="layer1">
     <path
        id="path1009"
-       style="fill:#deaa87;stroke:none;stroke-width:0.502708"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.502708"
        d="m 210.58936,63.969398 c -2.74556,11.289452 -17.39941,21.592864 -29.86745,22.70434 -12.78074,1.139351 -36.66756,-4.954851 -66.86593,-4.954851 -22.874958,0 -58.103163,6.368095 -79.775273,0.434722 C 15.869211,77.167681 2.734108,64.978095 2.734108,50.293064 c 0,-12.45824 7.0890707,-17.671336 22.12682,-26.205249 16.973779,-9.632608 66.275214,-19.6970497 93.454032,-19.6970497 26.60162,0 72.52717,0.2971609 87.36817,12.6331627 13.24876,11.012519 8.06113,33.972837 4.90623,46.94547 z"
        sodipodi:nodetypes="sssssssss" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.407802"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.407802"
        id="path3078"
        cx="211.99496"
        cy="49.264362"
@@ -52,7 +52,7 @@
        ry="7.8334222"
        transform="matrix(0.98989079,-0.1418317,0.13928943,0.99025171,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.351311"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.351311"
        id="path3078-75"
        cx="200.38689"
        cy="45.349331"
@@ -60,7 +60,7 @@
        ry="6.3323689"
        transform="matrix(0.9922169,-0.12452158,0.1585592,0.98734947,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.411633"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.411633"
        id="path3078-3"
        cx="219.32857"
        cy="65.285095"
@@ -68,7 +68,7 @@
        ry="8.3012199"
        transform="matrix(0.99020962,-0.13958835,0.11249225,0.9936526,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.38606"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.38606"
        id="path3078-3-3"
        cx="208.35922"
        cy="58.467766"
@@ -76,21 +76,21 @@
        ry="7.019875"
        transform="matrix(0.99358333,-0.11310247,0.13884029,0.99031479,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.44326"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.44326"
        id="path3078-6"
        cx="224.89606"
        cy="51.573982"
        rx="12.103462"
        ry="8.6806049" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.482013"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.482013"
        id="path3078-6-5"
        cx="213.04956"
        cy="51.739979"
        rx="14.276213"
        ry="8.7025747" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.388195"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.388195"
        id="path3078-7"
        cx="224.45343"
        cy="65.621902"
@@ -98,7 +98,7 @@
        ry="7.1882954"
        transform="matrix(0.99987089,0.01606878,-0.01828109,0.99983289,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.375308"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.375308"
        id="path3078-7-6"
        cx="216.03358"
        cy="52.619076"
@@ -106,7 +106,7 @@
        ry="7.2200928"
        transform="matrix(0.99746085,0.07121689,-0.06953759,0.99757933,0,0)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.502708"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.502708"
        id="path3078-5"
        cx="217.99615"
        cy="70.372635"
@@ -114,7 +114,7 @@
        ry="9.6137524"
        transform="rotate(3.9184915)" />
     <ellipse
-       style="fill:#deaa87;stroke:none;stroke-width:0.502708"
+       style="fill:#e9c6af;stroke:none;stroke-width:0.502708"
        id="path3078-5-2"
        cx="199.34042"
        cy="68.067894"
