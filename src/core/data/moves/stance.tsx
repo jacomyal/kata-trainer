@@ -24,14 +24,15 @@ export type RawStanceMeta = {
 
 export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
   "yohi-dachi": {
-    name: "Parallel stance",
+    name: "Position parallèle",
     kanji: "平行立ち",
     romaji: "Yohi Dachi",
     description: (
       <>
-        Heiko-dachi is an attention stance or "get ready" stance used in some styles. It is generally performed after
-        bowing (musubi-dachi), right before kihon practice or kata. Heiko-dachi is also the stance performed when
-        listening to instructions (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
+        Heiko-dachi est une position d'attention ou de "préparation" utilisée dans certains styles. Elle est
+        généralement effectuée après le salut (musubi-dachi), juste avant la pratique du kihon ou du kata. Heiko-dachi
+        est également la position adoptée lorsqu'on écoute des instructions (
+        <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
     rightFootBodyAngle: 0,
@@ -49,13 +50,13 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "heisoku-dachi": {
-    name: "Closed Foot Stance",
+    name: "Position des pieds joints",
     kanji: "閉足立ち",
     romaji: "Heisoku Dachi",
     description: (
       <>
-        Heisoku-dachi is the ready stance used in some kata. It is similar to musubi-dachi, but the feet are kept
-        together (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
+        Heisoku-dachi est la position de préparation utilisée dans certains katas. Elle est similaire à musubi-dachi,
+        mais les pieds sont joints (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
     rightFootBodyAngle: 0,
@@ -73,16 +74,17 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "zenkutsu-dachi": {
-    name: "Front Stance",
+    name: "Position avant",
     kanji: "前屈立ち",
     romaji: "Zenkutsu Dachi",
     description: (
       <>
-        Zenkutsu-dachi, a.k.a. forward stance, is one of the most common stances in Karate. It’s a stance that allows
-        you to reach far and generate a great deal of power generation moving forward. Like with most stances, the
-        Japanese version of Zenkutsu-dachi tends to be very long and wide compared to the shorter, more natural Okinawan
-        version. Zenkutsu-dachi is a stance used as a conditioning exercise, not for self-defense nor kumite. The "long"
-        version is a stabilizing stance that strengthens and tones the thighs, hips and glutes (
+        Zenkutsu-dachi, également connue sous le nom de position avant, est l'une des positions les plus courantes en
+        karaté. C'est une position qui permet d'atteindre loin et de générer beaucoup de puissance en avançant. Comme
+        pour la plupart des positions, la version japonaise de Zenkutsu-dachi tend à être très longue et large par
+        rapport à la version plus courte et naturelle de l'Okinawa. Zenkutsu-dachi est utilisée comme exercice de
+        conditionnement, pas pour l'autodéfense ni pour le kumite. La version "longue" est une position stabilisante qui
+        renforce et tonifie les cuisses, les hanches et les fessiers (
         <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
@@ -101,15 +103,16 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "han-zenkutsu-dachi": {
-    name: "Half Front Stance",
+    name: "Demi-position avant",
     kanji: "半前屈立ち",
     romaji: "Han Zenkutsu Dachi",
     description: (
       <>
-        Han Zenkutsu-dachi is the shorter or half version of Zenkutsu-dachi. It’s a stance suitable for self-defense and
-        kumite or sparring as it offers greater mobility. Han Zenkutsu-dachi is a neutral stance that allows you to
-        quickly move back into the defensive Neko-ashi-dachi or the thrust forward into a full Zenkutsu-dachi or
-        Sanchin-dachi (<a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
+        Han Zenkutsu-dachi est la version plus courte ou demi de Zenkutsu-dachi. C'est une position adaptée à
+        l'autodéfense et au kumite ou sparring car elle offre une plus grande mobilité. Han Zenkutsu-dachi est une
+        position neutre qui permet de passer rapidement à la position défensive Neko-ashi-dachi ou de se propulser vers
+        l'avant en pleine Zenkutsu-dachi ou Sanchin-dachi (
+        <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
     rightFootBodyAngle: 0,
@@ -127,13 +130,13 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "kokutsu-dachi": {
-    name: "Back Stance",
+    name: "Position arrière",
     kanji: "後屈立ち",
     romaji: "Kokutsu Dachi",
     description: (
       <>
-        Kokutsu-dachi is a defensive position that allows you to quickly retreat or move back and counterattack. It’s
-        great to evade attack from your opponent (
+        Kokutsu-dachi est une position défensive qui permet de reculer rapidement ou de se déplacer en arrière et de
+        contre-attaquer. Elle est idéale pour esquiver une attaque de l'adversaire (
         <a href="https://www.thekaratelifestyle.com/list-of-karate-stances/">source</a>).
       </>
     ),
@@ -152,11 +155,14 @@ export const RAW_STANCES_META: Record<Stance, RawStanceMeta> = {
     },
   },
   "kiba-dachi": {
-    name: "Horse Stance",
+    name: "Position du cavalier",
     kanji: "騎馬立ち",
     romaji: "Kiba Dachi",
     description: (
-      <>Wide stance with knees bent and weight evenly distributed, resembling the stance of riding a horse</>
+      <>
+        Position large avec les genoux fléchis et le poids réparti uniformément, ressemblant à la position de monter à
+        cheval
+      </>
     ),
     rightFootBodyAngle: Math.PI / 2,
     rightFootLeadingState: {

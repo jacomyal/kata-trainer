@@ -5,7 +5,7 @@ const Name: FC<{ data: { name: string; kanji: string; romaji: string } }> = ({ d
     <>
       {romaji}{" "}
       <small className="text-muted">
-        ({kanji}, {name})
+        (<span className="kanjis">{kanji}</span>, {name})
       </small>
     </>
   );
