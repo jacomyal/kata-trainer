@@ -1,6 +1,5 @@
 import cx from "classnames";
-import type { FC } from "react";
-import { useCallback, useMemo, useState } from "react";
+import { FC, KeyboardEvent, useCallback, useMemo, useState } from "react";
 
 import type { BodyState, Kata, Palm } from "../core/data";
 
@@ -12,6 +11,11 @@ const PALM_CLASSES: Record<Palm, string> = {
   sky: "sky",
 };
 
+const ANGLE_OFFSET = -Math.PI / 2;
+
+const BASE_TIME = 1200;
+const PAUSE_TIME = 1000;
+
 export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hands, pelvis, head } }) => {
   return (
     <>
@@ -21,7 +25,7 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
           style={{
             top: -feet.left.y + "cm",
             left: feet.left.x + "cm",
-            transform: `rotate(${-feet.left.angle - Math.PI / 2}rad)`,
+            transform: `rotate(${-feet.left.angle + ANGLE_OFFSET}rad)`,
           }}
         />
         <div
@@ -29,7 +33,7 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
           style={{
             top: -feet.right.y + "cm",
             left: feet.right.x + "cm",
-            transform: `rotate(${-feet.right.angle - Math.PI / 2}rad)`,
+            transform: `rotate(${-feet.right.angle + ANGLE_OFFSET}rad)`,
           }}
         />
       </div>
@@ -52,7 +56,7 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
               style={{
                 top: -hands.left.y + "cm",
                 left: hands.left.x + "cm",
-                transform: `rotate(${-hands.left.angle - Math.PI / 2}rad)`,
+                transform: `rotate(${-hands.left.angle + ANGLE_OFFSET}rad)`,
               }}
             />
             <div
@@ -64,7 +68,7 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
               style={{
                 top: -hands.right.y + "cm",
                 left: hands.right.x + "cm",
-                transform: `rotate(${-hands.right.angle - Math.PI / 2}rad)`,
+                transform: `rotate(${-hands.right.angle + ANGLE_OFFSET}rad)`,
               }}
             />
           </div>
@@ -72,14 +76,14 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
           <div
             className="body"
             style={{
-              transform: `rotate(${-pelvis.angle - Math.PI / 2}rad)`,
+              transform: `rotate(${-pelvis.angle + ANGLE_OFFSET}rad)`,
             }}
           />
 
           <div
             className="head"
             style={{
-              transform: `rotate(${-head.angle - Math.PI / 2}rad)`,
+              transform: `rotate(${-head.angle + ANGLE_OFFSET}rad)`,
             }}
           />
         </div>
@@ -89,31 +93,96 @@ export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hand
 };
 
 const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
-  const [step, setStep] = useState(0);
-  const feetState = useMemo(() => kata.states[step], [kata, step]);
-  const checkStep = useCallback(
+  const [state, setState] = useState<{
+    step: number;
+    timeout?: number;
+  }>({ step: 0 });
+
+  const feetState = useMemo(() => kata.states[state.step], [kata, state.step]);
+  const cleanStep = useCallback(
     (step: number) => {
       const l = kata.steps.length;
       return ((step % l) + l) % l;
     },
     [kata],
   );
+  const setStep = useCallback(
+    (step: number) => {
+      setState({
+        ...state,
+        step: cleanStep(step),
+      });
+    },
+    [cleanStep, state],
+  );
+  const start = useCallback(() => {
+    setState(({ step }) => {
+      const newStep = cleanStep(step + 1);
+
+      if (newStep < kata.steps.length - 1) {
+        const hasPause = kata.steps[step].pause;
+        const time = BASE_TIME + (hasPause ? PAUSE_TIME : 0);
+        return {
+          step: newStep,
+          timeout: setTimeout(() => start(), time),
+        };
+      } else {
+        return {
+          step: newStep,
+        };
+      }
+    });
+  }, [cleanStep, kata.steps]);
+  const stop = useCallback(() => {
+    if (state.timeout) {
+      clearTimeout(state.timeout);
+      setState({
+        ...state,
+        timeout: undefined,
+      });
+    }
+  }, [state]);
+  const toggleAutoPlay = useCallback(() => {
+    state.timeout ? stop() : start();
+  }, [start, state.timeout, stop]);
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent<HTMLElement>) => {
+      switch (e.key) {
+        case "ArrowLeft":
+          setStep(state.step - 1);
+          break;
+        case "ArrowRight":
+          setStep(state.step + 1);
+          break;
+        case " ":
+          toggleAutoPlay();
+          break;
+      }
+    },
+    [setStep, state.step, toggleAutoPlay],
+  );
 
   return (
-    <section className="row">
+    <section className="row p-3" onKeyDown={handleKeyDown} tabIndex={1}>
       <div className="dojo">
         <BodyStateDisplay state={feetState} />
       </div>
 
       <div className="text-center mt-2">
-        <button className="btn btn-outline-primary" onClick={() => setStep(checkStep(step - 1))}>
+        <button className="btn btn-outline-primary" onClick={() => setStep(state.step - 1)}>
           ←
         </button>
         <span className="mx-2">
-          {step + 1} / {kata.steps.length}
+          {state.step + 1} / {kata.steps.length}
         </span>
-        <button className="btn btn-outline-primary" onClick={() => setStep(checkStep(step + 1))}>
+        <button className="btn btn-outline-primary" onClick={() => setStep(state.step + 1)}>
           →
+        </button>
+      </div>
+
+      <div className="text-center mt-2">
+        <button className="btn btn-outline-primary" onClick={() => toggleAutoPlay()}>
+          {state.timeout ? "■" : "▶"}
         </button>
       </div>
     </section>
