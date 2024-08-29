@@ -1,2 +1,5 @@
 node_modules
 .astro
+
+# Auto generated:
+src/env.d.ts
