@@ -20,7 +20,7 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             KATAS.map((kata) => (
               <li>
-                <a href={`/katas/${kata.slug}`}>
+                <a href={`/kata-trainer/katas/${kata.slug}`}>
                   <Name data={kata} />
                 </a>
               </li>
@@ -38,7 +38,7 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             STANCES.map((slug) => (
               <li>
-                <a href={`/stances/${slug}`}>
+                <a href={`/kata-trainer/stances/${slug}`}>
                   <Name data={STANCES_META[slug]} />
                 </a>
               </li>
@@ -54,7 +54,7 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             HAND_MOVES.map((slug) => (
               <li>
-                <a href={`/hands/${slug}`}>
+                <a href={`/kata-trainer/hands/${slug}`}>
                   <Name data={HAND_MOVES_META[slug]} />
                 </a>
               </li>
@@ -70,7 +70,7 @@ import { FOOT_MOVES, FOOT_MOVES_META, HAND_MOVES, HAND_MOVES_META, KATAS, STANCE
           {
             FOOT_MOVES.map((slug) => (
               <li>
-                <a href={`/feet/${slug}`}>
+                <a href={`/kata-trainer/feet/${slug}`}>
                   <Name data={FOOT_MOVES_META[slug]} />
                 </a>
               </li>

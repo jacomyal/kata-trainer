@@ -69,7 +69,7 @@ const footMoves = chain(kata.footMoves)
           {
             stances.map(({ stance, count }) => (
               <li>
-                <a href={`/stances/${stance.slug}`}>
+                <a href={`/kata-trainer/stances/${stance.slug}`}>
                   <Name data={stance} />
                 </a>{" "}
                 <span class="text-muted">({count})</span>
@@ -86,7 +86,7 @@ const footMoves = chain(kata.footMoves)
           {
             handMoves.map(({ handMove, count }) => (
               <li>
-                <a href={`/hands/${handMove.slug}`}>
+                <a href={`/kata-trainer/hands/${handMove.slug}`}>
                   <Name data={handMove} />
                 </a>{" "}
                 <span class="text-muted">({count})</span>
@@ -103,7 +103,7 @@ const footMoves = chain(kata.footMoves)
           {
             footMoves.map(({ footMove, count }) => (
               <li>
-                <a href={`/feet/${footMove.slug}`}>
+                <a href={`/kata-trainer/feet/${footMove.slug}`}>
                   <Name data={footMove} />
                 </a>{" "}
                 <span class="text-muted">({count})</span>

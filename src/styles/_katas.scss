@@ -7,7 +7,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
   $width: 800px;
   $height: 800px;
 
-  background-image: url("/images/dojo.svg");
+  background-image: url(/kata-trainer/images/dojo.svg);
   background-size: cover;
 
   position: relative;
@@ -35,7 +35,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
       height: 10cm;
       bottom: -5cm;
       left: -5cm;
-      background: url(/images/foot.svg);
+      background: url(/kata-trainer/images/foot.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
@@ -84,7 +84,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
     @each $closed in ("opened", "closed") {
       @each $palm in ("ground", "side", "sky") {
         &.#{$closed}.#{$palm}::after {
-          background-image: url("/images/hand-#{$closed}-#{$palm}.svg");
+          background-image: url("/kata-trainer/images/hand-#{$closed}-#{$palm}.svg");
         }
       }
     }
@@ -112,7 +112,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
       height: 70cm;
       bottom: -35cm;
       left: -5cm;
-      background: url(/images/body.svg);
+      background: url(/kata-trainer/images/body.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
@@ -133,7 +133,7 @@ $IMPACT_TRANSITION: all 0.4s cubic-bezier(1, 0, 0.5, 0);
       height: 36cm;
       bottom: -18cm;
       left: -5cm;
-      background: url(/images/head.svg);
+      background: url(/kata-trainer/images/head.svg);
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
