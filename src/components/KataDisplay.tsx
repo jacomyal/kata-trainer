@@ -1,104 +1,28 @@
-import cx from "classnames";
-import { FC, KeyboardEvent, useCallback, useMemo, useState } from "react";
+import { FC, KeyboardEvent, useCallback, useEffect, useMemo, useState } from "react";
+import { FaPauseCircle, FaPlayCircle } from "react-icons/fa";
+import { GrFormNext, GrFormPrevious } from "react-icons/gr";
+import Select from "react-select";
 
-import type { BodyState, Kata, Palm } from "../core/data";
-
-const PALM_CLASSES: Record<Palm, string> = {
-  back: "side",
-  front: "side",
-  ground: "ground",
-  side: "side",
-  sky: "sky",
-};
-
-const ANGLE_OFFSET = -Math.PI / 2;
+import type { Kata } from "../core/data";
+import { stepToSentence } from "../core/utils/speakableTexts.ts";
+import { SpeechOption, useSpeech } from "../core/utils/useSpeech.ts";
+import { BodyStateDisplay } from "./BodyStateDisplay.tsx";
 
 const BASE_TIME = 1200;
 const PAUSE_TIME = 1000;
 
-export const BodyStateDisplay: FC<{ state: BodyState }> = ({ state: { feet, hands, pelvis, head } }) => {
-  return (
-    <>
-      <div className="feet">
-        <div
-          className="foot foot-left"
-          style={{
-            top: -feet.left.y + "cm",
-            left: feet.left.x + "cm",
-            transform: `rotate(${-feet.left.angle + ANGLE_OFFSET}rad)`,
-          }}
-        />
-        <div
-          className="foot foot-right"
-          style={{
-            top: -feet.right.y + "cm",
-            left: feet.right.x + "cm",
-            transform: `rotate(${-feet.right.angle + ANGLE_OFFSET}rad)`,
-          }}
-        />
-      </div>
-
-      <div>
-        <div
-          className="body-wrapper"
-          style={{
-            top: -pelvis.y + "cm",
-            left: pelvis.x + "cm",
-          }}
-        >
-          <div className="hands">
-            <div
-              className={cx(
-                "hand hand-left",
-                hands.left.closedFist ? "closed" : "opened",
-                PALM_CLASSES[hands.left.palm],
-              )}
-              style={{
-                top: -hands.left.y + "cm",
-                left: hands.left.x + "cm",
-                transform: `rotate(${-hands.left.angle + ANGLE_OFFSET}rad)`,
-              }}
-            />
-            <div
-              className={cx(
-                "hand hand-right",
-                hands.right.closedFist ? "closed" : "opened",
-                PALM_CLASSES[hands.right.palm],
-              )}
-              style={{
-                top: -hands.right.y + "cm",
-                left: hands.right.x + "cm",
-                transform: `rotate(${-hands.right.angle + ANGLE_OFFSET}rad)`,
-              }}
-            />
-          </div>
-
-          <div
-            className="body"
-            style={{
-              transform: `rotate(${-pelvis.angle + ANGLE_OFFSET}rad)`,
-            }}
-          />
-
-          <div
-            className="head"
-            style={{
-              transform: `rotate(${-head.angle + ANGLE_OFFSET}rad)`,
-            }}
-          />
-        </div>
-      </div>
-    </>
-  );
-};
-
 const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
+  const { speak, options, voice, setVoice, cancelSpeak } = useSpeech();
   const [state, setState] = useState<{
     step: number;
     timeout?: number;
   }>({ step: 0 });
 
   const feetState = useMemo(() => kata.states[state.step], [kata, state.step]);
+  const kataStep = useMemo(
+    () => kata.steps[(state.step - 1 + kata.steps.length) % kata.steps.length],
+    [kata, state.step],
+  );
   const cleanStep = useCallback(
     (step: number) => {
       const l = kata.steps.length;
@@ -162,6 +86,12 @@ const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
     [setStep, state.step, toggleAutoPlay],
   );
 
+  useEffect(() => {
+    cancelSpeak();
+    speak(state.step ? stepToSentence(kataStep) : "Position initiale");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kataStep, state.step]);
+
   return (
     <section className="row p-3" onKeyDown={handleKeyDown} tabIndex={1}>
       <div className="dojo">
@@ -170,20 +100,27 @@ const KataDisplay: FC<{ kata: Kata }> = ({ kata }) => {
 
       <div className="text-center mt-2">
         <button className="btn btn-outline-primary" onClick={() => setStep(state.step - 1)}>
-          ←
+          <GrFormPrevious />
         </button>
         <span className="mx-2">
           {state.step + 1} / {kata.steps.length}
         </span>
         <button className="btn btn-outline-primary" onClick={() => setStep(state.step + 1)}>
-          →
+          <GrFormNext />
         </button>
       </div>
 
       <div className="text-center mt-2">
-        <button className="btn btn-outline-primary" onClick={() => toggleAutoPlay()}>
-          {state.timeout ? "■" : "▶"}
+        <button className="btn btn-outline-primary me-2" onClick={() => toggleAutoPlay()}>
+          {state.timeout ? <FaPauseCircle /> : <FaPlayCircle />}
         </button>
+        <Select<SpeechOption>
+          className="d-inline-block"
+          options={options}
+          value={voice}
+          onChange={(opt) => opt && setVoice(opt)}
+          id="voice-input"
+        />
       </div>
     </section>
   );
